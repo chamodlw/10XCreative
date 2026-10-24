@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --brand-red: #E3222A;
+  --brand-red-dark: #B8141C;
+  --ink: #0F0F10;
+  --charcoal: #1A1A1A;
+  --paper: #F7F7F5;
+  --mist: #ECECEA;
+  --white: #FFFFFF;
+  --muted: #6B6B6B;
+}
+
+@theme {
+  --color-brand-red: #E3222A;
+  --color-brand-red-dark: #B8141C;
+  --color-ink: #0F0F10;
+  --color-charcoal: #1A1A1A;
+  --color-paper: #F7F7F5;
+  --color-mist: #ECECEA;
+  --color-white: #FFFFFF;
+  --color-muted: #6B6B6B;
+
+  --font-display: var(--font-anton), "Bebas Neue", sans-serif;
+  --font-body: var(--font-jakarta), "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: clip;
+  selection-background-color: var(--brand-red);
+  selection-color: var(--white);
+}
+
+::selection {
+  background-color: #E3222A;
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8141C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E3222A;
+}
+
+/* Fine pointer cursor hide when custom cursor is active */
+@media (pointer: fine) {
+  body.custom-cursor-enabled,
+  body.custom-cursor-enabled a,
+  body.custom-cursor-enabled button,
+  body.custom-cursor-enabled input,
+  body.custom-cursor-enabled textarea,
+  body.custom-cursor-enabled select,
+  body.custom-cursor-enabled [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Utility animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes spark-travel {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-spark {
+  animation: spark-travel 6s ease-in-out infinite;
+}
