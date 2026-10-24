@@ -28,9 +28,16 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out flex justify-center ${
-          isScrolled ? "pt-3 sm:pt-4 px-4 sm:px-6" : "pt-4 sm:pt-6 px-6 sm:px-12"
+          isScrolled ? "pt-3 sm:pt-4 px-4 sm:px-6" : "pt-4 sm:pt-6 pb-6 sm:pb-10 px-6 sm:px-12"
         }`}
       >
+        {/* Header background before scrolling: #dfd9d2 to transparent */}
+        <div
+          className={`absolute inset-x-0 top-0 h-32 sm:h-40 -z-10 transition-opacity duration-500 pointer-events-none bg-gradient-to-b from-[#dfd9d2] via-[#dfd9d2]/80 to-transparent ${
+            isScrolled ? "opacity-0" : "opacity-100"
+          }`}
+        />
+
         <motion.div
           layout
           transition={{ duration: 0.35, ease: "easeOut" }}

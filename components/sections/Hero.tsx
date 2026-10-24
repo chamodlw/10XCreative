@@ -59,60 +59,68 @@ export default function Hero() {
           className="block md:hidden w-full h-full object-cover"
         />
 
-        {/* Very subtle subtle gradient at bottom only so CTAs and Marquee sit cleanly */}
+        {/* Top gradient from #dfd9d2 fading to transparent over the top of the video */}
+        <div className="absolute inset-x-0 top-0 h-36 sm:h-48 bg-gradient-to-b from-[#dfd9d2] via-[#dfd9d2]/70 to-transparent pointer-events-none" />
+
+        {/* Very subtle gradient at bottom only so CTAs and Marquee sit cleanly */}
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0F0F10]/80 via-[#0F0F10]/40 to-transparent pointer-events-none" />
       </div>
 
-      {/* Floating Sound Toggle at Top Right */}
-      <div className="relative z-20 pt-28 sm:pt-32 px-6 sm:px-12 flex justify-end">
-        <button
-          type="button"
-          onClick={toggleSound}
-          aria-label={isMuted ? "Unmute video sound" : "Mute video sound"}
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300"
-        >
-          {isMuted ? (
-            <>
-              <VolumeX className="w-3.5 h-3.5 text-[#E3222A]" />
-              <span className="text-[11px] uppercase tracking-wider">Unmute Video</span>
-            </>
-          ) : (
-            <>
-              <Volume2 className="w-3.5 h-3.5 text-[#25D366]" />
-              <span className="text-[11px] uppercase tracking-wider">Sound Playing</span>
-            </>
-          )}
-        </button>
-      </div>
+      {/* Bottom Controls Bar: Sound Icon on Left, 2 CTA Buttons in Center/Right, just top of marquee */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-10 pb-5 sm:pb-7 flex flex-col md:flex-row items-center justify-between gap-4 mt-auto">
+        {/* Left Bottom: Sound Toggle Icon */}
+<div className="order-2 md:order-1 flex items-center justify-center md:justify-start w-full md:w-auto">          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={isMuted ? "Unmute video sound" : "Mute video sound"}
+            className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX className="w-4 h-4 text-[#E3222A]" />
+                <span className="text-[11px] uppercase tracking-wider font-bold">Unmute Video</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-4 h-4 text-[#FFFFFF]" />
+                <span className="text-[11px] uppercase tracking-wider font-bold">Sound Playing</span>
+              </>
+            )}
+          </button>
+        </div>
 
-      {/* Hero Bottom Bar with Action CTA Buttons */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-10 pb-10 sm:pb-14 flex flex-col items-center text-center">
+        {/* Center / Right: 2 CTA Buttons */}
+
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="order-1 md:order-2 flex flex-row items-center justify-center gap-3.5 w-full md:w-auto"
         >
           <Button
             href="/contact"
             variant="primary"
-            size="lg"
+            size="md"
             magnetic
             icon
-            className="text-sm tracking-wider shadow-[0_10px_30px_rgba(227,34,42,0.6)]"
+            className="text-xs sm:text-sm tracking-wider whitespace-nowrap shadow-[0_8px_25px_rgba(227,34,42,0.6)] !py-3 !px-4 sm:!px-6"
           >
-            Schedule a Free Consultation
+            <span className="sm:hidden">Let’s Chat</span>
+            <span className="hidden sm:inline">Let’s Chat & Grow</span>
           </Button>
+
           <Button
             href="/portfolio"
             variant="white"
-            size="lg"
+            size="md"
             icon
-            className="text-sm tracking-wider backdrop-blur-md bg-white/90 hover:bg-white text-[#0F0F10] shadow-xl"
+            className="text-xs sm:text-sm tracking-wider whitespace-nowrap backdrop-blur-md bg-white/95 hover:bg-white text-[#0F0F10] shadow-xl !py-3 !px-4 sm:!px-6"
           >
-            View Our Work
+            <span className="sm:hidden">Our Work</span>
+            <span className="hidden sm:inline">View Our Work</span>
           </Button>
         </motion.div>
+
       </div>
 
       {/* Infinite Marquee Strip at the Bottom */}

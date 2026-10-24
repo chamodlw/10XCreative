@@ -118,7 +118,7 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
           icon
           className="w-full text-center py-4"
         >
-          Request a Free Consultation
+          Let’s Chat & Grow
         </Button>
       </div>
 
