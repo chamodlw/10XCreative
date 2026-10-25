@@ -43,7 +43,7 @@ export default function SectionTitle({
   }
 
   return (
-    <div className={`flex flex-col max-w-3xl ${alignClass} ${className}`}>
+    <div className={`flex flex-col max-w-5xl ${alignClass} ${className}`}>
       {badge && (
         <motion.div
           initial={{ opacity: 0, y: 15 }}

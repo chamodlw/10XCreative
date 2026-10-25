@@ -79,7 +79,6 @@ export default function Header() {
                 >
                   <span className="relative z-10 flex items-center gap-1">
                     {link.label}
-                    {isActive && <span className="text-[10px]">⚡</span>}
                   </span>
 
                   {/* Active Indicator layout animation */}

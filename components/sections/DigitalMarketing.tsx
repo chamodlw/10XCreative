@@ -76,7 +76,7 @@ export default function DigitalMarketing() {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         {/* Intro Banner */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-5xl mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E3222A]/15 border border-[#E3222A]/30 text-[#E3222A] text-xs font-bold uppercase tracking-wider mb-4">
             <span>⚡</span>
             <span>WHAT WE DO</span>

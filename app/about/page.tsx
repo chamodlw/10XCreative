@@ -95,7 +95,7 @@ export default function AboutPage() {
     <div className="pt-28 sm:pt-36 bg-[#F7F7F5]">
       {/* Hero Header */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 pb-16">
-        <div className="max-w-3xl">
+        <div className="max-w-5xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF1F1] text-[#E3222A] text-xs font-bold uppercase tracking-wider mb-6 border border-[#FFD5D7]">
             <span>⚡</span> ABOUT 10X CREATIVE
           </div>

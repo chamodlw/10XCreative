@@ -1,15 +1,135 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import confetti from "canvas-confetti";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
-import { FaWhatsapp, FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import {
+  MapPin, Phone, Mail, Clock, Send,
+  CheckCircle2, AlertCircle, Loader2, ChevronDown, Check
+} from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { contactFormSchema, ContactFormData } from "@/lib/validations";
 import { CONTACT, BUDGET_RANGES, SERVICE_OPTIONS } from "@/lib/constants";
 import Button from "@/components/ui/Button";
 
+// ── Checkbox Dropdown for Services ──────────────────────────────────────────
+function ServicesDropdown({
+  selected,
+  onChange,
+  error,
+}: {
+  selected: string[];
+  onChange: (services: string[]) => void;
+  error?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggle = (srv: string) => {
+    if (selected.includes(srv)) {
+      if (selected.length > 1) onChange(selected.filter((s) => s !== srv));
+    } else {
+      onChange([...selected, srv]);
+    }
+  };
+
+  const displayLabel =
+    selected.length === 0
+      ? "Select services..."
+      : selected.length === 1
+      ? selected[0]
+      : `${selected.length} services selected`;
+
+  return (
+    <div ref={ref} className="relative">
+      {/* Trigger button */}
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className={`w-full px-4 py-3.5 rounded-xl border bg-[#F7F7F5] text-sm text-left flex items-center justify-between gap-2 focus:outline-none focus:border-[#E3222A] focus:ring-2 focus:ring-[#E3222A]/20 transition-all ${
+          error ? "border-red-500" : "border-black/10"
+        } ${open ? "border-[#E3222A] ring-2 ring-[#E3222A]/20 bg-white" : ""}`}
+      >
+        <span className={selected.length === 0 ? "text-[#6B6B6B]/60" : "text-[#0F0F10] font-medium"}>
+          {displayLabel}
+        </span>
+        <ChevronDown
+          className={`w-4 h-4 text-[#6B6B6B] shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#E3222A]" : ""}`}
+        />
+      </button>
+
+      {/* Selected chips preview */}
+      {selected.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {selected.map((s) => (
+            <span
+              key={s}
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FFF1F1] text-[#E3222A] text-[11px] font-bold border border-[#FFD5D7]"
+            >
+              {s}
+              <button
+                type="button"
+                onClick={() => toggle(s)}
+                className="hover:text-[#B8141C] transition-colors ml-0.5"
+                aria-label={`Remove ${s}`}
+              >
+                ×
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Dropdown panel */}
+      {open && (
+        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-black/10 rounded-xl shadow-xl z-50 overflow-hidden">
+          {SERVICE_OPTIONS.map((srv) => {
+            const isChecked = selected.includes(srv);
+            return (
+              <label
+                key={srv}
+                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-[#FFF1F1] transition-colors group"
+              >
+                {/* Custom checkbox */}
+                <div
+                  onClick={() => toggle(srv)}
+                  className={`w-4 h-4 rounded shrink-0 border-2 flex items-center justify-center transition-all ${
+                    isChecked
+                      ? "bg-[#E3222A] border-[#E3222A]"
+                      : "border-black/25 group-hover:border-[#E3222A]"
+                  }`}
+                >
+                  {isChecked && <Check className="w-2.5 h-2.5 text-white stroke-[3]" />}
+                </div>
+                <span
+                  onClick={() => toggle(srv)}
+                  className={`text-sm font-medium select-none ${
+                    isChecked ? "text-[#E3222A]" : "text-[#0F0F10]"
+                  }`}
+                >
+                  {srv}
+                </span>
+              </label>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Main Contact Page ─────────────────────────────────────────────────────────
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
@@ -38,41 +158,19 @@ export default function ContactPage() {
 
   const selectedServices = watch("services") || [];
 
-  const toggleService = (service: string) => {
-    if (selectedServices.includes(service)) {
-      if (selectedServices.length > 1) {
-        setValue(
-          "services",
-          selectedServices.filter((s) => s !== service),
-          { shouldValidate: true }
-        );
-      }
-    } else {
-      setValue("services", [...selectedServices, service], { shouldValidate: true });
-    }
-  };
-
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setErrorMessage(null);
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
       const result = await res.json();
-
-      if (!res.ok || !result.success) {
-        throw new Error(result.message || "Something went wrong while sending your message.");
-      }
-
+      if (!res.ok || !result.success) throw new Error(result.message || "Something went wrong.");
       setSubmissionSuccess(true);
       reset();
-
-      // Launch joyful celebratory confetti!
       confetti({
         particleCount: 100,
         spread: 70,
@@ -80,11 +178,9 @@ export default function ContactPage() {
         colors: ["#E3222A", "#0F0F10", "#25D366", "#FFFFFF"],
       });
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setErrorMessage(err.message);
-      } else {
-        setErrorMessage("An unexpected error occurred. Please try WhatsApp directly.");
-      }
+      setErrorMessage(
+        err instanceof Error ? err.message : "An unexpected error occurred."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -107,10 +203,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Main Grid: Form on Left, Contact Details & Map on Right */}
+      {/* Main Grid */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Contact Form Left Column */}
+
+          {/* ── Contact Form ── */}
           <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl border border-black/5 shadow-xs">
             {submissionSuccess ? (
               <div className="py-16 text-center space-y-6">
@@ -124,34 +221,18 @@ export default function ContactPage() {
                   Thanks for reaching out! One of our lead digital strategists is reviewing your project details and will be in touch within 24 hours.
                 </p>
                 <div className="pt-4 flex flex-wrap justify-center gap-4">
-                  <Button
-                    onClick={() => setSubmissionSuccess(false)}
-                    variant="outline"
-                    size="md"
-                  >
+                  <Button onClick={() => setSubmissionSuccess(false)} variant="outline" size="md">
                     Submit Another Inquiry
                   </Button>
-                  <Button
-                    href={CONTACT.whatsapp.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="primary"
-                    size="md"
-                  >
+                  <Button href={CONTACT.whatsapp.link} target="_blank" rel="noopener noreferrer" variant="primary" size="md">
                     Chat on WhatsApp Now
                   </Button>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Honeypot field (hidden from legitimate users) */}
-                <input
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  className="hidden"
-                  {...register("honeypot")}
-                />
+                {/* Honeypot – hidden */}
+                <input type="text" tabIndex={-1} autoComplete="off" className="hidden" {...register("honeypot")} />
 
                 {errorMessage && (
                   <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-[#E3222A] text-xs flex items-center gap-2">
@@ -160,118 +241,99 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                {/* Name & Email Row */}
+                {/* Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Full Name – MANDATORY */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
                       Full Name <span className="text-[#E3222A]">*</span>
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. John Wickramasinghe"
+                      placeholder="Nimal Perera"
                       {...register("fullName")}
                       className={`w-full px-4 py-3.5 rounded-xl border bg-[#F7F7F5] text-sm text-[#0F0F10] placeholder-[#6B6B6B]/60 focus:bg-white focus:outline-none focus:border-[#E3222A] focus:ring-2 focus:ring-[#E3222A]/20 transition-all ${
                         errors.fullName ? "border-red-500" : "border-black/10"
                       }`}
                     />
-                    {errors.fullName && (
-                      <p className="text-xs text-red-500 mt-1">{errors.fullName.message}</p>
-                    )}
+                    {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName.message}</p>}
                   </div>
 
+                  {/* Email – not mandatory, no asterisk */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
-                      Email Address <span className="text-[#E3222A]">*</span>
+                      Email Address
                     </label>
                     <input
                       type="email"
-                      placeholder="e.g. john@yourcompany.com"
+                      placeholder="nimal@yourcompany.lk"
                       {...register("email")}
                       className={`w-full px-4 py-3.5 rounded-xl border bg-[#F7F7F5] text-sm text-[#0F0F10] placeholder-[#6B6B6B]/60 focus:bg-white focus:outline-none focus:border-[#E3222A] focus:ring-2 focus:ring-[#E3222A]/20 transition-all ${
                         errors.email ? "border-red-500" : "border-black/10"
                       }`}
                     />
-                    {errors.email && (
-                      <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
-                    )}
+                    {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
                   </div>
                 </div>
 
-                {/* Phone & Company Row */}
+                {/* Phone & Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Phone – MANDATORY */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
                       Phone / WhatsApp <span className="text-[#E3222A]">*</span>
                     </label>
                     <input
                       type="tel"
-                      placeholder="e.g. +94 77 123 4567"
+                      placeholder="+94 77 123 4567"
                       {...register("phone")}
                       className={`w-full px-4 py-3.5 rounded-xl border bg-[#F7F7F5] text-sm text-[#0F0F10] placeholder-[#6B6B6B]/60 focus:bg-white focus:outline-none focus:border-[#E3222A] focus:ring-2 focus:ring-[#E3222A]/20 transition-all ${
                         errors.phone ? "border-red-500" : "border-black/10"
                       }`}
                     />
-                    {errors.phone && (
-                      <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
-                    )}
+                    {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
                   </div>
 
+                  {/* Company – not mandatory, no asterisk, no "optional" text */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
-                      Company / Brand Name <span className="text-[#6B6B6B] text-[10px]">(Optional)</span>
+                      Company / Brand Name
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Apex Global"
+                      placeholder="Sampath Holdings (Pvt) Ltd"
                       {...register("company")}
                       className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F7F7F5] text-sm text-[#0F0F10] placeholder-[#6B6B6B]/60 focus:bg-white focus:outline-none focus:border-[#E3222A] focus:ring-2 focus:ring-[#E3222A]/20 transition-all"
                     />
                   </div>
                 </div>
 
-                {/* Services Multi-Select Chips */}
+                {/* Services – Checkbox Dropdown */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
-                    Services You Are Interested In <span className="text-[#E3222A]">*</span>
+                    Services You Are Interested In
                   </label>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {SERVICE_OPTIONS.map((srv) => {
-                      const isSelected = selectedServices.includes(srv);
-                      return (
-                        <button
-                          key={srv}
-                          type="button"
-                          onClick={() => toggleService(srv)}
-                          className={`px-3.5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 border ${
-                            isSelected
-                              ? "bg-[#E3222A] text-white border-[#E3222A] shadow-xs"
-                              : "bg-[#F7F7F5] text-[#1A1A1A] border-black/10 hover:border-black/30"
-                          }`}
-                        >
-                          {isSelected ? "✓ " : "+ "}
-                          {srv}
-                        </button>
-                      );
-                    })}
-                  </div>
+                  <ServicesDropdown
+                    selected={selectedServices}
+                    onChange={(v) => setValue("services", v, { shouldValidate: true })}
+                    error={errors.services?.message}
+                  />
                   {errors.services && (
                     <p className="text-xs text-red-500 mt-1.5">{errors.services.message}</p>
                   )}
                 </div>
 
-                {/* Budget Range Select */}
+                {/* Budget Range */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
-                    Estimated Budget Range <span className="text-[#E3222A]">*</span>
+                    Estimated Budget Range
                   </label>
                   <select
                     {...register("budget")}
                     className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F7F7F5] text-sm text-[#0F0F10] focus:bg-white focus:outline-none focus:border-[#E3222A] focus:ring-2 focus:ring-[#E3222A]/20 transition-all"
                   >
                     {BUDGET_RANGES.map((range) => (
-                      <option key={range} value={range}>
-                        {range}
-                      </option>
+                      <option key={range} value={range}>{range}</option>
                     ))}
                   </select>
                 </div>
@@ -279,7 +341,7 @@ export default function ContactPage() {
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#0F0F10] mb-2">
-                    Project Details & Goals <span className="text-[#E3222A]">*</span>
+                    Project Details &amp; Goals
                   </label>
                   <textarea
                     rows={4}
@@ -289,12 +351,10 @@ export default function ContactPage() {
                       errors.message ? "border-red-500" : "border-black/10"
                     }`}
                   />
-                  {errors.message && (
-                    <p className="text-xs text-red-500 mt-1">{errors.message.message}</p>
-                  )}
+                  {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message.message}</p>}
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -316,9 +376,8 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* Right Column: Contact Cards & Google Map */}
+          {/* ── Right Column: Contact Cards & Map ── */}
           <div className="lg:col-span-5 space-y-6">
-            {/* Direct Cards */}
             <div className="p-8 rounded-3xl bg-[#0F0F10] text-white space-y-6">
               <span className="text-xs font-bold uppercase tracking-widest text-[#E3222A] block">
                 ⚡ CONNECT DIRECTLY
@@ -331,9 +390,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-white/50 mb-0.5">Colombo Headquarters</h4>
-                  <p className="text-sm text-white/90 leading-relaxed">
-                    {CONTACT.address.full}
-                  </p>
+                  <p className="text-sm text-white/90 leading-relaxed">{CONTACT.address.full}</p>
                 </div>
               </div>
 
@@ -345,14 +402,10 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-white/50 mb-0.5">Call Our Team</h4>
                   <p className="text-sm text-white/90">
-                    <a href={`tel:${CONTACT.phones[0].value}`} className="hover:text-[#E3222A] transition-colors">
-                      {CONTACT.phones[0].display}
-                    </a>
+                    <a href={`tel:${CONTACT.phones[0].value}`} className="hover:text-[#E3222A] transition-colors">{CONTACT.phones[0].display}</a>
                   </p>
                   <p className="text-sm text-white/90">
-                    <a href={`tel:${CONTACT.phones[1].value}`} className="hover:text-[#E3222A] transition-colors">
-                      {CONTACT.phones[1].display}
-                    </a>
+                    <a href={`tel:${CONTACT.phones[1].value}`} className="hover:text-[#E3222A] transition-colors">{CONTACT.phones[1].display}</a>
                   </p>
                 </div>
               </div>
@@ -365,19 +418,15 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-white/50 mb-0.5">Email Inquiries</h4>
                   <p className="text-sm text-white/90">
-                    <a href={`mailto:${CONTACT.emails.primary}`} className="hover:text-[#E3222A] transition-colors">
-                      {CONTACT.emails.primary}
-                    </a>
+                    <a href={`mailto:${CONTACT.emails.primary}`} className="hover:text-[#E3222A] transition-colors">{CONTACT.emails.primary}</a>
                   </p>
                   <p className="text-sm text-white/70">
-                    <a href={`mailto:${CONTACT.emails.general}`} className="hover:text-[#E3222A] transition-colors">
-                      {CONTACT.emails.general}
-                    </a>
+                    <a href={`mailto:${CONTACT.emails.general}`} className="hover:text-[#E3222A] transition-colors">{CONTACT.emails.general}</a>
                   </p>
                 </div>
               </div>
 
-              {/* WhatsApp instant button */}
+              {/* WhatsApp */}
               <div className="pt-2">
                 <a
                   href={CONTACT.whatsapp.link}
@@ -397,7 +446,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Embedded Google Map */}
+            {/* Google Map */}
             <div className="h-72 rounded-3xl overflow-hidden border border-black/5 shadow-xs relative">
               <iframe
                 title="10X Creative Office Map"

@@ -51,50 +51,6 @@ export default function Footer() {
                 LET&apos;S BUILD SOMETHING <span className="text-[#E3222A]">10X</span>.
               </h2>
             </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <MagneticButton strength={0.4}>
-                <Link
-                  href="/contact"
-                  data-cursor="link"
-                  className="w-36 h-36 rounded-full bg-[#E3222A] hover:bg-[#B8141C] text-white flex flex-col items-center justify-center font-display uppercase tracking-wider text-sm transition-all duration-300 shadow-[0_10px_30px_rgba(227,34,42,0.4)] group"
-                >
-                  <span className="text-center font-bold">Start a</span>
-                  <span className="flex items-center gap-1 font-bold">
-                    Project <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </span>
-                </Link>
-              </MagneticButton>
-
-              {/* Newsletter subscribe */}
-              <div className="w-full sm:w-72">
-                <p className="text-xs text-white/70 mb-2 font-medium">
-                  Get battle-tested digital growth tips:
-                </p>
-                <form onSubmit={handleNewsletterSubmit} className="relative flex items-center">
-                  <input
-                    type="email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="w-full bg-white/5 border border-white/15 rounded-full px-4 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#E3222A] transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    aria-label="Subscribe"
-                    className="absolute right-1 w-8 h-8 rounded-full bg-[#E3222A] flex items-center justify-center hover:bg-[#B8141C] transition-colors"
-                  >
-                    {emailSubscribed ? <Check className="w-3.5 h-3.5 text-white" /> : <ArrowUpRight className="w-3.5 h-3.5 text-white" />}
-                  </button>
-                </form>
-                {emailSubscribed && (
-                  <p className="text-[11px] text-[#25D366] mt-1.5 flex items-center gap-1">
-                    ⚡ You&apos;re subscribed! Welcome aboard.
-                  </p>
-                )}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -249,9 +205,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Oversized Wordmark across full width */}
-        <div className="relative py-8 select-none text-center overflow-hidden">
-          <span className="font-display text-[15vw] leading-none uppercase tracking-tighter text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] block hover:text-white/5 transition-colors duration-500">
+        {/* Oversized Wordmark — reduced to 7.5vw, forced single line */}
+        <div className="relative py-4 select-none text-center overflow-hidden">
+          <span className="font-display text-[7.5vw] whitespace-nowrap leading-none uppercase tracking-tighter text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.12)] block hover:text-white/5 transition-colors duration-500">
             10X <span className="text-[#E3222A] inline-block filter drop-shadow-[0_0_15px_#E3222A]">⚡</span> CREATIVE
           </span>
         </div>
