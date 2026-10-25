@@ -57,10 +57,10 @@ export default function Loading() {
         {/* Typography */}
         <div className="flex items-center gap-2 mt-6">
           <span className="font-display text-lg tracking-[0.2em] text-white uppercase">
-            10X
+            10X CREATIVE
           </span>
           <span className="text-base text-[#E3222A] animate-pulse">⚡</span>
-          <span className="text-base text-[#E3222A] animate-pulse">CREATIVE</span>
+          
         </div>
 
         {/* High-Tech Loading Line */}
