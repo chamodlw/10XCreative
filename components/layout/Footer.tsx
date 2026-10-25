@@ -98,7 +98,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 data-cursor="link"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 group"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E3222A] hover:border-[#E3222A] transition-all duration-300 group"
               >
                 <FaWhatsapp className="w-4 h-4 text-white/80 group-hover:text-white group-hover:scale-110 transition-transform" />
               </a>
@@ -199,8 +199,11 @@ export default function Footer() {
                 </a>
               </p>
             </div>
-            <div className="pt-2 text-[11px] text-white/50 border-t border-white/10">
-              <span className="text-[#E3222A] font-bold">Hours:</span> {CONTACT.hours}
+            <div className="pt-2 text-[11px] text-white/50 border-t border-white/10 space-y-0.5">
+              <div>
+                <span className="text-[#E3222A] font-bold">Hours:</span> Monday – Friday: 9:00 AM – 6:00 PM
+              </div>
+              <div className="text-white/40">Saturday: 9:00 AM – 1:00 PM</div>
             </div>
           </div>
         </div>
@@ -218,15 +221,15 @@ export default function Footer() {
             © {currentYear} 10X Creative (Pvt) Ltd. All Rights Reserved.
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">
             <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-            <span>•</span>
+            <span className="hidden sm:inline text-white/20">•</span>
             <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-            <span>•</span>
+            <span className="hidden sm:inline text-white/20">•</span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-white hover:text-[#E3222A] transition-colors group"
+              className="flex items-center gap-1.5 text-white hover:text-[#E3222A] transition-colors group pt-1 sm:pt-0"
             >
               Back to top
               <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-1 transition-transform" />

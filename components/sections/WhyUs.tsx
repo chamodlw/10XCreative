@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { Play, X } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
@@ -27,11 +26,13 @@ export default function WhyUs() {
               className="relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group border border-black/5"
               data-cursor="play"
             >
-              <Image
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
-                alt="10X Creative Growth Video"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              <video
+                src="/video/marketing-video.mp4"
+                muted
+                loop
+                autoPlay
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
 
@@ -96,12 +97,12 @@ export default function WhyUs() {
               <X className="w-6 h-6" />
             </button>
             <div className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="10X Creative Reel"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+              <video
+                src="/video/marketing-video.mp4"
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
               />
             </div>
           </motion.div>

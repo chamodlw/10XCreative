@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -42,7 +43,37 @@ export async function generateMetadata({
   };
 }
 
-export default async function ServiceDetailPage({
+export default function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  return (
+    <Suspense fallback={<ServiceDetailSkeleton />}>
+      <ServiceDetailContent params={params} />
+    </Suspense>
+  );
+}
+
+function ServiceDetailSkeleton() {
+  return (
+    <div className="pt-28 sm:pt-36 bg-[#F7F7F5] min-h-screen animate-pulse">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 pb-16">
+        <div className="w-32 h-6 bg-black/5 rounded-full mb-8" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="w-48 h-6 bg-black/5 rounded-full" />
+            <div className="w-3/4 h-16 bg-black/5 rounded-2xl" />
+            <div className="w-full h-24 bg-black/5 rounded-2xl" />
+          </div>
+          <div className="lg:col-span-5 h-[380px] sm:h-[460px] bg-black/5 rounded-3xl" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+async function ServiceDetailContent({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -307,7 +338,7 @@ export default async function ServiceDetailPage({
               variant="secondary"
               size="lg"
             >
-              WhatsApp Us (+94 76 371 1125)
+              Chat on WhatsApp
             </Button>
           </div>
         </div>

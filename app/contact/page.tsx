@@ -380,7 +380,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-3xl bg-[#0F0F10] text-white space-y-6">
               <span className="text-xs font-bold uppercase tracking-widest text-[#E3222A] block">
-                ⚡ CONNECT DIRECTLY
+                CONNECT DIRECTLY
               </span>
 
               {/* Address */}
@@ -435,14 +435,17 @@ export default function ContactPage() {
                   className="w-full py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
                 >
                   <FaWhatsapp className="w-4 h-4" />
-                  <span>Chat on WhatsApp (+94 76 371 1125)</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
 
               {/* Hours */}
-              <div className="flex items-center gap-3 pt-4 border-t border-white/10 text-xs text-white/60">
-                <Clock className="w-4 h-4 text-[#E3222A]" />
-                <span>{CONTACT.hours}</span>
+              <div className="flex items-start gap-3 pt-4 border-t border-white/10 text-xs text-white/60">
+                <Clock className="w-4 h-4 text-[#E3222A] shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
+                  <p>Saturday: 9:00 AM – 1:00 PM</p>
+                </div>
               </div>
             </div>
 

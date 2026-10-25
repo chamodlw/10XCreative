@@ -31,12 +31,12 @@ export const CONTACT = {
     general: "info@tenxcreative.com",
   },
   socials: {
-    instagram: "https://instagram.com/10x.creative",
-    facebook: "https://facebook.com/10xcreative",
-    linkedin: "https://linkedin.com/company/10xcreative",
+    instagram: "https://www.instagram.com/10x.creative/",
+    facebook: "https://www.facebook.com/be10xcreative/",
+    linkedin: "https://www.linkedin.com/company/10xcreative",
     tiktok: "https://tiktok.com/@10x.creative",
   },
-  hours: "Monday – Friday: 9:00 AM – 6:00 PM (IST / GMT+5:30)",
+  hours: "Monday – Friday: 9:00 AM – 6:00 PM | Saturday: 9:00 AM – 1:00 PM",
   geo: {
     latitude: 6.8868,
     longitude: 79.8596,
@@ -55,7 +55,7 @@ export const STATS = [
   { value: 25, suffix: "+", label: "Happy Clients", desc: "Long-term partners scaling with us" },
   { value: 100, suffix: "+", label: "Projects Delivered", desc: "High-impact campaigns & web solutions" },
   { value: 5, suffix: "+", label: "Years Experience", desc: "Pioneering creative digital growth" },
-  { value: 5, suffix: "", label: "Awards Earned", desc: "Recognized for creative excellence" },
+  { value: 95, suffix: "", label: "Awards Earned", desc: "Recognized for creative excellence" },
 ];
 
 export const BUDGET_RANGES = [

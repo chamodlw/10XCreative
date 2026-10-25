@@ -105,12 +105,13 @@ export default function AboutPage() {
       <section className="py-16 bg-white border-y border-black/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 relative h-[440px] rounded-3xl overflow-hidden shadow-xl border border-black/5">
+            <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-black/5">
               <Image
                 src="/images/others/our-story.png"
                 alt="10X Creative Agency Story"
                 fill
-                className="object-cover object-left-top"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
             <div className="lg:col-span-6 space-y-6">
