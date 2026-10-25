@@ -53,7 +53,7 @@ export default function Header() {
             className="relative flex items-center shrink-0 group focus:outline-none"
             data-cursor="link"
           >
-            <div className={`relative transition-all duration-300 ${isScrolled ? "w-36 h-8" : "w-44 h-10"}`}>
+            <div className={`relative transition-all duration-300 ${isScrolled ? "w-36 h-8" : "w-64 h-16"}`}>
               <Image
                 src="/10x-logo.png"
                 alt="10X Creative"

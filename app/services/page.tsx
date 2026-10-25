@@ -58,7 +58,7 @@ export default function ServicesPage() {
                   src={service.heroImage}
                   alt={service.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-left-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-white text-[#E3222A] flex items-center justify-center shadow-lg">

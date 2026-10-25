@@ -1,7 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import About from "@/components/sections/About";
-import DigitalMarketing from "@/components/sections/DigitalMarketing";
 import Portfolio from "@/components/sections/Portfolio";
 import Stats from "@/components/sections/Stats";
 import WhyUs from "@/components/sections/WhyUs";
@@ -23,9 +22,6 @@ export default function HomePage() {
 
       {/* 5.3 About */}
       <About />
-
-      {/* 5.4 Digital Marketing (Dark) */}
-      <DigitalMarketing />
 
       {/* 5.5 Portfolio Bento Grid */}
       <Portfolio />

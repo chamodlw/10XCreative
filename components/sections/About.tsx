@@ -27,7 +27,7 @@ export default function About() {
           >
             <div className="relative h-[440px] sm:h-[540px] rounded-3xl overflow-hidden shadow-2xl border border-black/5">
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+                src="/images/others/home-about.png"
                 alt="10X Creative Team Strategizing"
                 fill
                 className="object-cover"

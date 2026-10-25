@@ -25,7 +25,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: "Reach the right audience, with the right message, at the right time with high-ROI PPC campaigns.",
     fullDescription: "Stop wasting ad spend on vanity metrics. We build, manage, and scale hyper-targeted paid advertising campaigns across Meta (Facebook & Instagram), Google Search, YouTube, and TikTok to acquire high-value customers at minimum acquisition cost.",
     iconName: "Megaphone",
-    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/services/paid-advertising.jpg",
     highlights: [
       "Targeted Meta (Facebook & Instagram) Ads",
       "Google Search, Display & Performance Max",
@@ -75,7 +75,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: "Build awareness, engage with your audience, and foster meaningful connections that turn followers into brand advocates.",
     fullDescription: "Social media is more than posting pretty pictures; it is your brand's digital flagship. We combine data-backed content calendars, community management, and trend-jacking to create vibrant social communities that actively buy.",
     iconName: "Share2",
-    heroImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/services/social-media-marketing.jpg",
     highlights: [
       "Custom Brand Voice & Social Strategy",
       "Monthly Curated Content Calendar",
@@ -120,7 +120,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: "Amplify your message through trusted voices in your industry for authentic word-of-mouth scale.",
     fullDescription: "Tap into established creator loyalty. We vet, match, and orchestrate influencer campaigns with authentic storytellers in Sri Lanka and regional markets to build social proof that drives immediate purchases.",
     iconName: "Users",
-    heroImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/services/influencer-marketing.jpg",
     highlights: [
       "Creator Vetting & Fake-Follower Audits",
       "Nano, Micro & Tier-1 Influencer Networks",
@@ -165,7 +165,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: "Create cinematic, sarcastic and scroll-stopping content that drives viral engagement on social media.",
     fullDescription: "Standard corporate content is ignored. We produce energetic, witty, cinematic, and relatable video content tailored specifically for Reels, TikTok, and YouTube Shorts that hooks viewers in the first 1.5 seconds.",
     iconName: "Video",
-    heroImage: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/services/content-creation.jpg",
     highlights: [
       "4K Cinematic Video Production",
       "Viral Hook Scriptwriting & Sarcastic Humor",
@@ -210,7 +210,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: "Create brand-themed designs that captivate and communicate your brand's message effectively.",
     fullDescription: "Visual brilliance that commands attention. From high-fashion travel posters and architectural brochures to bold product packaging and social ads, we craft distinct visual identities that stay etched in memory.",
     iconName: "Palette",
-    heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/services/graphic-designing.jpg",
     highlights: [
       "Brand Identity & Style Guides",
       "Marketing Collateral & Promotional Print",
@@ -255,7 +255,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: "Build user-friendly websites that offer seamless experiences and drive conversions for your business.",
     fullDescription: "We build high-performance, responsive, and award-winning digital flagships. Engineered with Next.js, TypeScript, and modern motion design, our websites load under 1s and turn casual visitors into paying customers.",
     iconName: "Layout",
-    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/services/web-designing.jpg",
     highlights: [
       "Custom Next.js & React Architecture",
       "Mobile-First Responsive Layouts",

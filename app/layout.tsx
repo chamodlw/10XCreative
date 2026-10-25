@@ -81,9 +81,9 @@ export const metadata: Metadata = {
     creator: "@10xcreative",
   },
   icons: {
-    icon: "/10x-logo.png",
-    shortcut: "/10x-logo.png",
-    apple: "/10x-logo.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
