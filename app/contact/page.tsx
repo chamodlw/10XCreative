@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { zodResolver } from "@/lib/zod-resolver";
 import confetti from "canvas-confetti";
 import {
   MapPin, Phone, Mail, Clock, Send,
@@ -97,13 +97,13 @@ function ServicesDropdown({
           {SERVICE_OPTIONS.map((srv) => {
             const isChecked = selected.includes(srv);
             return (
-              <label
+              <div
                 key={srv}
-                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-[#FFF1F1] transition-colors group"
+                onClick={() => toggle(srv)}
+                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-[#FFF1F1] transition-colors group select-none"
               >
                 {/* Custom checkbox */}
                 <div
-                  onClick={() => toggle(srv)}
                   className={`w-4 h-4 rounded shrink-0 border-2 flex items-center justify-center transition-all ${
                     isChecked
                       ? "bg-[#E3222A] border-[#E3222A]"
@@ -113,14 +113,13 @@ function ServicesDropdown({
                   {isChecked && <Check className="w-2.5 h-2.5 text-white stroke-[3]" />}
                 </div>
                 <span
-                  onClick={() => toggle(srv)}
-                  className={`text-sm font-medium select-none ${
+                  className={`text-sm font-medium ${
                     isChecked ? "text-[#E3222A]" : "text-[#0F0F10]"
                   }`}
                 >
                   {srv}
                 </span>
-              </label>
+              </div>
             );
           })}
         </div>

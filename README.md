@@ -3,7 +3,7 @@
 > **"Unleash the Power of Digital."**  
 > A high-performance, results-driven marketing agency and web solutions platform based in Colombo, Sri Lanka.
 
-Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, **Lenis Smooth Scroll**, **Nodemailer**, and **React Hook Form + Zod**.
+Built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, **Lenis Smooth Scroll**, **Nodemailer**, and **React Hook Form + Zod**.
 
 ---
 
@@ -59,8 +59,8 @@ Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Fram
 ### 1. Clone & Install Dependencies
 
 ```bash
-git clone https://github.com/your-org/10xcreative.git
-cd 10xcreative
+git clone https://github.com/chamodlw/10XCreative.git
+cd 10XCreative
 npm install
 ```
 
@@ -70,12 +70,12 @@ Create a `.env.local` file in the root directory:
 
 ```env
 # Google Gmail SMTP Configuration (for contact form emails)
-SMTP_USER=your-email@gmail.com
+SMTP_USER=chamodweerasinghe8@gmail.com
 SMTP_PASS=xxxx-xxxx-xxxx-xxxx
 CONTACT_RECEIVER_EMAIL=ajwad@tenxcreative.com
 
 # Site URL & WhatsApp Number
-NEXT_PUBLIC_WHATSAPP_NUMBER=94763711125
+WHATSAPP_NUMBER=94763711125
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
@@ -115,13 +115,13 @@ To send emails through Gmail SMTP via Nodemailer:
 
 ## 🌐 Deploying to Vercel
 
-1. Push your repository to GitHub / GitLab.
+1. Push your repository to GitHub.
 2. In the [Vercel Dashboard](https://vercel.com/new), import the repository.
 3. In **Project Settings** → **Environment Variables**, add:
    - `SMTP_USER`
    - `SMTP_PASS`
    - `CONTACT_RECEIVER_EMAIL`
-   - `NEXT_PUBLIC_WHATSAPP_NUMBER`
+   - `WHATSAPP_NUMBER`
    - `NEXT_PUBLIC_SITE_URL` (set to `https://tenxcreative.com` or your production domain)
 4. Click **Deploy**.
 
