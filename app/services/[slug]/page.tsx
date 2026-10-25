@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Check, ChevronDown, Megaphone, Share2, Users, Video, Palette, Layout } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Megaphone, Share2, Users, Video, Palette, Layout } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { SERVICES, ServiceItem } from "@/data/services";
 import { PORTFOLIO_ITEMS } from "@/data/portfolio";
@@ -248,25 +248,39 @@ export default async function ServiceDetailPage({
           {relatedPortfolio.map((item) => (
             <div
               key={item.id}
-              className="group relative h-80 rounded-2xl overflow-hidden shadow-md border border-black/5"
+              className="group relative flex flex-col rounded-3xl overflow-hidden shadow-xs hover:shadow-2xl transition-all duration-500 bg-white p-3.5 hover:-translate-y-1.5"
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <span className="text-[11px] font-bold text-[#E3222A] uppercase tracking-wider block mb-1">
-                  {item.client}
-                </span>
-                <h3 className="font-display text-xl uppercase tracking-tight text-white mb-1">
-                  {item.title}
-                </h3>
-                <span className="text-xs text-[#25D366] font-semibold">
-                  ⚡ {item.results}
-                </span>
+              {/* 4:3 Image Container on Top */}
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute bottom-3.5 left-4 right-4 z-10">
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white drop-shadow-md block">
+                    {item.client}
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom Content Area */}
+              <div className="p-4 pt-5 pb-2 flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="font-display text-xl uppercase tracking-tight text-[#0F0F10] group-hover:text-[#E3222A] transition-colors leading-tight mb-2">
+                    {item.title}
+                  </h3>
+                </div>
+                <div className="flex items-center justify-between pt-3 border-t border-black/5 mt-auto">
+                  <span className="text-xs font-semibold text-[#25D366]">
+                    ⚡ {item.results}
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-[#F7F7F5] group-hover:bg-[#E3222A] group-hover:text-white text-[#0F0F10] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
               </div>
             </div>
           ))}

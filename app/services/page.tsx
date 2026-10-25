@@ -61,7 +61,7 @@ export default function ServicesPage() {
                   className="object-cover object-left-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-white text-[#E3222A] flex items-center justify-center shadow-lg">
+                <div className="absolute top-6 right-6 w-12 h-12 rounded-xl bg-white text-[#E3222A] flex items-center justify-center shadow-lg">
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">

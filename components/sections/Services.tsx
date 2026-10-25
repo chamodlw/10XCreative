@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,6 +19,12 @@ const SERVICE_IMAGES: Record<string, string> = {
   "web-designing":            "/images/services/web-designing.jpg",
 };
 
+const DEFAULT_ACTIVE_SLUGS = new Set([
+  "content-creation",
+  "web-designing",
+  "social-media-marketing",
+]);
+
 const iconMap = {
   Megaphone,
   Share2,
@@ -28,6 +35,8 @@ const iconMap = {
 };
 
 export default function Services() {
+  const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
+
   return (
     <section className="py-24 sm:py-32 bg-[#F7F7F5] relative overflow-hidden" id="services">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
@@ -47,10 +56,26 @@ export default function Services() {
         </div>
 
         {/* 6 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
-          ))}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          onMouseLeave={() => setHoveredSlug(null)}
+        >
+          {SERVICES.map((service, index) => {
+            const isHovered =
+              hoveredSlug !== null
+                ? hoveredSlug === service.slug
+                : DEFAULT_ACTIVE_SLUGS.has(service.slug);
+
+            return (
+              <ServiceCard
+                key={service.id}
+                service={service}
+                index={index}
+                isHovered={isHovered}
+                onHover={() => setHoveredSlug(service.slug)}
+              />
+            );
+          })}
         </div>
 
         {/* Mobile View All Button */}
@@ -64,7 +89,17 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
+function ServiceCard({
+  service,
+  index,
+  isHovered,
+  onHover,
+}: {
+  service: ServiceItem;
+  index: number;
+  isHovered: boolean;
+  onHover: () => void;
+}) {
   const IconComponent = iconMap[service.iconName] || Megaphone;
   const imgSrc = SERVICE_IMAGES[service.slug] || service.heroImage;
 
@@ -74,7 +109,10 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative bg-[#FFFFFF] rounded-2xl border border-black/5 shadow-xs transition-all duration-500 overflow-hidden hover:-translate-y-2 hover:shadow-2xl min-h-[290px]"
+      onMouseEnter={onHover}
+      className={`group relative bg-[#FFFFFF] rounded-2xl border border-black/5 shadow-xs transition-all duration-500 overflow-hidden min-h-[290px] ${
+        isHovered ? "-translate-y-2 shadow-2xl" : "hover:-translate-y-2 hover:shadow-2xl"
+      }`}
       data-cursor="link"
     >
       {/* ── Background Image — anchored top-left, crops from bottom-right ── */}
@@ -83,16 +121,26 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
           src={imgSrc}
           alt={service.title}
           fill
-          className="object-cover object-left-top opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className={`object-cover object-left-top transition-opacity duration-500 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 
-      {/* ── Bottom gradient overlay (only on hover) ── */}
-      <div className="absolute inset-0 z-[1] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+      {/* ── Bottom gradient overlay ── */}
+      <div
+        className={`absolute inset-0 z-[1] transition-opacity duration-500 bg-gradient-to-t from-black/90 via-black/40 to-transparent ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`}
+      />
 
-      {/* ── Default card content (fades out on hover) ── */}
-      <div className="relative z-10 flex flex-col h-full p-8 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+      {/* ── Default card content (fades out when active) ── */}
+      <div
+        className={`relative z-10 flex flex-col h-full p-8 transition-opacity duration-300 pointer-events-none ${
+          isHovered ? "opacity-0" : "opacity-100"
+        }`}
+      >
         {/* Icon */}
         <div className="mb-6">
           <div className="w-13 h-13 rounded-xl bg-[#FFF1F1] text-[#E3222A] flex items-center justify-center">
@@ -123,13 +171,17 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
         </div>
       </div>
 
-      {/* ── Hover state: EXPLORE CAPABILITY only, pinned to bottom ── */}
-      <div className="absolute inset-x-0 bottom-0 z-10 p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-400 delay-75">
+      {/* ── Active state: EXPLORE CAPABILITY only, pinned to bottom ── */}
+      <div
+        className={`absolute inset-x-0 bottom-0 z-10 p-8 transition-opacity duration-400 delay-75 ${
+          isHovered ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
         <div className="flex items-center justify-between pt-4 border-t border-white/30">
           <span className="text-xs font-bold uppercase tracking-[2px] text-white">
             EXPLORE CAPABILITY
           </span>
-          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center translate-x-1 transition-transform duration-300">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>

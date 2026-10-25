@@ -1,92 +1,181 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function Preloader() {
-  const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const pathname = usePathname();
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [isNavigating, setIsNavigating] = useState(false);
 
+  // Initial page load animation
   useEffect(() => {
-    // Check if user already saw the preloader in this session
-    const hasSeen = sessionStorage.getItem("10x_preloader_seen");
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (hasSeen || prefersReducedMotion) {
-      setLoading(false);
-      return;
-    }
-
-    // Animate progress 0 to 100 in ~1.2 seconds
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setLoading(false);
-            sessionStorage.setItem("10x_preloader_seen", "true");
-          }, 300);
-          return 100;
-        }
-        return prev + Math.floor(Math.random() * 12) + 6;
-      });
-    }, 45);
-
-    return () => clearInterval(interval);
+    const timer = setTimeout(() => {
+      setInitialLoading(false);
+    }, 700);
+    return () => clearTimeout(timer);
   }, []);
 
+  // Listen for navigation clicks across the application
+  useEffect(() => {
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest("a");
+      if (!target) return;
+
+      const href = target.getAttribute("href");
+      if (!href) return;
+
+      // Ignore non-navigation or external links
+      if (
+        href.startsWith("#") ||
+        href.startsWith("mailto:") ||
+        href.startsWith("tel:") ||
+        href.includes("wa.me") ||
+        target.target === "_blank" ||
+        href.startsWith("http://") ||
+        href.startsWith("https://")
+      ) {
+        return;
+      }
+
+      const targetPath = href.split("?")[0].split("#")[0];
+      if (targetPath && targetPath !== pathname) {
+        setIsNavigating(true);
+      }
+    };
+
+    const handlePopState = () => {
+      setIsNavigating(true);
+    };
+
+    document.addEventListener("click", handleLinkClick, { capture: true });
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      document.removeEventListener("click", handleLinkClick, { capture: true });
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [pathname]);
+
+  // When pathname changes, smoothly fade out loader after brief interval
+  useEffect(() => {
+    if (isNavigating) {
+      const timer = setTimeout(() => {
+        setIsNavigating(false);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, isNavigating]);
+
+  const showLoader = initialLoading || isNavigating;
+
   return (
-    <AnimatePresence>
-      {loading && (
+    <AnimatePresence mode="wait">
+      {showLoader && (
         <motion.div
-          key="preloader"
-          initial={{ opacity: 1 }}
-          exit={{ y: "-100%", transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } }}
-          className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#0F0F10] text-white overflow-hidden"
+          key="theme-page-loader"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { duration: 0.35, ease: "easeOut" } }}
+          className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#0F0F10] text-white select-none overflow-hidden"
         >
-          {/* Subtle background red glow */}
-          <div className="absolute w-[400px] h-[400px] rounded-full bg-[#E3222A]/15 blur-[120px] pointer-events-none" />
+          {/* Glowing Radial Ambience */}
+          <div className="absolute w-[450px] h-[450px] rounded-full bg-[#E3222A]/20 blur-[130px] pointer-events-none" />
+          <div className="absolute w-[250px] h-[250px] rounded-full bg-[#E3222A]/30 blur-[60px] pointer-events-none animate-pulse" />
 
-          {/* Logo container using 10x-Logo2 */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative w-64 h-24 mb-8"
-          >
-            <Image
-              src="/10x-logo2-white.png"
-              alt="10X Creative"
-              fill
-              priority
-              className="object-contain"
-            />
-          </motion.div>
+          {/* Center Branded Loader Assembly */}
+          <div className="relative flex flex-col items-center">
+            {/* Rotating Orbit Ring around Favicon */}
+            <div className="relative w-36 h-36 sm:w-40 sm:h-40 flex items-center justify-center">
+              {/* Outer SVG rotating dash ring */}
+              <svg
+                className="absolute inset-0 w-full h-full animate-[spin_5s_linear_infinite]"
+                viewBox="0 0 100 100"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="46"
+                  fill="none"
+                  stroke="rgba(227, 34, 42, 0.4)"
+                  strokeWidth="2"
+                  strokeDasharray="14 10"
+                />
+              </svg>
 
-          {/* Spark Lightning Icon with Pulse */}
-          <motion.div
-            animate={{
-              scale: [1, 1.25, 1],
-              filter: ["drop-shadow(0 0 5px #E3222A)", "drop-shadow(0 0 20px #E3222A)", "drop-shadow(0 0 5px #E3222A)"],
-            }}
-            transition={{ repeat: Infinity, duration: 1.2 }}
-            className="text-4xl text-[#E3222A] mb-6"
-          >
-            ⚡
-          </motion.div>
+              {/* Inner counter-rotating ring with spark marker */}
+              <svg
+                className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] animate-[spin_3s_linear_infinite_reverse]"
+                viewBox="0 0 100 100"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="rgba(255, 255, 255, 0.15)"
+                  strokeWidth="1.5"
+                  strokeDasharray="6 30"
+                />
+              </svg>
 
-          {/* Loading Progress Percentage & Bar */}
-          <div className="w-48 flex flex-col items-center">
-            <div className="flex items-center justify-between w-full text-xs font-mono tracking-widest text-[#6B6B6B] mb-2">
-              <span>UNLEASHING DIGITAL</span>
-              <span className="text-[#E3222A] font-bold">{Math.min(progress, 100)}%</span>
-            </div>
-            <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+              {/* Glowing Glass Icon Disc with favicon.png */}
               <motion.div
-                className="h-full bg-[#E3222A]"
-                style={{ width: `${Math.min(progress, 100)}%` }}
-                transition={{ ease: "easeOut" }}
+                animate={{
+                  scale: [0.94, 1.05, 0.94],
+                  filter: [
+                    "drop-shadow(0 0 12px rgba(227, 34, 42, 0.5))",
+                    "drop-shadow(0 0 30px rgba(227, 34, 42, 0.85))",
+                    "drop-shadow(0 0 12px rgba(227, 34, 42, 0.5))",
+                  ],
+                }}
+                transition={{
+                  duration: 1.6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/[0.04] border border-white/15 backdrop-blur-xl shadow-2xl flex items-center justify-center p-3 overflow-hidden"
+              >
+                {/* Diagonal subtle light sheen sweep */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                  animate={{ x: ["-150%", "150%"] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                />
+
+                <Image
+                  src="/favicon.png"
+                  alt="10X Creative"
+                  width={64}
+                  height={64}
+                  priority
+                  className="object-contain w-12 h-12 sm:w-14 sm:h-14 relative z-10"
+                />
+              </motion.div>
+            </div>
+
+            {/* Typography & Spark */}
+            <div className="flex items-center gap-2 mt-6">
+              <span className="font-display text-lg tracking-[0.2em] text-white uppercase">
+                10X CREATIVE
+              </span>
+              <motion.span
+                animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ repeat: Infinity, duration: 1 }}
+                className="text-base text-[#E3222A]"
+              >
+                ⚡
+              </motion.span>
+            </div>
+
+            {/* High-Tech Animated Loading Line */}
+            <div className="w-44 h-1 bg-white/10 rounded-full overflow-hidden mt-4 relative">
+              <motion.div
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ repeat: Infinity, duration: 1.1, ease: "easeInOut" }}
+                className="w-1/2 h-full bg-gradient-to-r from-transparent via-[#E3222A] to-transparent rounded-full shadow-[0_0_10px_#E3222A]"
               />
             </div>
           </div>

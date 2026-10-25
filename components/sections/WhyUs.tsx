@@ -70,31 +70,6 @@ export default function WhyUs() {
               className="mb-8"
             />
 
-            <p className="text-sm font-bold text-[#E3222A] uppercase tracking-wider mb-8">
-              ⚡ Partner with 10X Creative and experience the difference.
-            </p>
-
-            {/* Vision and Mission Blocks */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-              <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-xs hover:border-[#E3222A]/30 transition-colors">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#E3222A] mb-2 flex items-center gap-1.5">
-                  <span>⚡</span> OUR VISION
-                </div>
-                <p className="text-xs sm:text-sm text-[#1A1A1A] leading-relaxed">
-                  To be the most trusted name in results-driven marketing, helping businesses in Sri Lanka and worldwide scale to bold new heights.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-xs hover:border-[#E3222A]/30 transition-colors">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#E3222A] mb-2 flex items-center gap-1.5">
-                  <span>⚡</span> OUR MISSION
-                </div>
-                <p className="text-xs sm:text-sm text-[#1A1A1A] leading-relaxed">
-                  To empower ambitious businesses with innovative, data-driven marketing strategies that maximize customer acquisition and deliver unmatched ROI.
-                </p>
-              </div>
-            </div>
-
             <div>
               <Button href="/contact" variant="primary" size="lg" icon magnetic>
                 Request a Quote Now

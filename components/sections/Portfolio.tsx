@@ -88,44 +88,52 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => openLightbox(idx)}
-                className="group relative h-[360px] sm:h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-md border border-black/5"
+                className="group relative flex flex-col rounded-3xl overflow-hidden cursor-pointer shadow-xs hover:shadow-2xl transition-all duration-500 bg-white p-3.5 hover:-translate-y-1.5"
                 data-cursor="view"
               >
-                {/* Background image */}
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                />
+                {/* 4:3 Image Container on Top */}
+                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                  />
 
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10] via-[#0F0F10]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  {/* Dark Gradient Overlay at Bottom of Image */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10]/90 via-[#0F0F10]/20 to-transparent" />
 
-                {/* Top Category Badge */}
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="inline-block px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[#0F0F10] text-[11px] font-bold uppercase tracking-wider shadow-sm">
-                    {item.category}
-                  </span>
+                  {/* Top Category Badge (Unchanged) */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[#0F0F10] text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  {/* Client Name on Bottom Gradient of Image */}
+                  <div className="absolute bottom-3.5 left-4 right-4 z-10">
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white drop-shadow-md block">
+                      {item.client}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Bottom Content */}
-                <div className="absolute bottom-6 left-6 right-6 z-10 transform transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="text-xs text-[#E3222A] font-bold uppercase tracking-wider block mb-1">
-                    {item.client}
-                  </span>
-                  <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white mb-2 leading-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-white/70 line-clamp-2 mb-3">
-                    {item.description}
-                  </p>
+                {/* Bottom Content Area: Project Title and Details */}
+                <div className="p-4 pt-5 pb-2 flex flex-col flex-grow justify-between">
+                  <div>
+                    <h3 className="font-display text-xl sm:text-2xl uppercase tracking-tight text-[#0F0F10] group-hover:text-[#E3222A] transition-colors leading-tight mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#6B6B6B] line-clamp-2 leading-relaxed mb-4">
+                      {item.description}
+                    </p>
+                  </div>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-white/15">
-                    <span className="text-[11px] font-bold text-[#25D366]">
+                  <div className="flex items-center justify-between pt-3 border-t border-black/5 mt-auto">
+                    <span className="text-xs font-bold text-[#25D366]">
                       ⚡ {item.results}
                     </span>
-                    <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#E3222A] text-white flex items-center justify-center transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-[#F7F7F5] group-hover:bg-[#E3222A] group-hover:text-white text-[#0F0F10] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5">
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>

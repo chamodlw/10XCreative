@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import { Target, Lightbulb, Shield, Rocket, Eye, Compass } from "lucide-react";
@@ -51,48 +50,36 @@ const CORE_VALUES = [
 
 const TEAM_MEMBERS = [
   {
-    name: "Ajwad",
-    role: "Founder & Lead Strategist",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-    bio: "Pioneering digital growth strategies and paid advertising architectures for leading brands across Sri Lanka.",
-    socials: {
-      facebook: "https://www.facebook.com/",
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-    },
+    number: "01",
+    tag: "FOUNDER & DIRECTOR",
+    name: "Ajwad Ameer",
+    role: "Founder & Director",
+    bio: "Helping Ambitious Brands Build, Grow & Scale. Marketing + Growth",
+    image: "/images/team/Ajwad-Ameer.png",
   },
   {
-    name: "Dinuk Perera",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-    bio: "Oversees brand identities, cinematic commercials, and viral content production with Awwwards-tier craft.",
-    socials: {
-      facebook: "https://www.facebook.com/",
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-    },
+    number: "02",
+    tag: "CO-FOUNDER",
+    name: "Tharsheen Jude",
+    role: "Co-Founder",
+    bio: "Co founder, ads runner",
+    image: "/images/team/Tharsheen-Jude.jpg",
   },
   {
-    name: "Shenali Fernando",
-    role: "Head of Performance Marketing",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
-    bio: "Meta & Google Ads specialist managing high-spend ROAS funnels, conversion tracking, and retargeting.",
-    socials: {
-      facebook: "https://www.facebook.com/",
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-    },
+    number: "03",
+    tag: "CREATIVE & UI/UX",
+    name: "Maheshi De Silva",
+    role: "UI/UX & Creative Designer",
+    bio: "Google UX Design Certified | Creating Engaging User Experiences",
+    image: "/images/team/Maheshi-De-Silva.jpg",
   },
   {
-    name: "Kavinda Silva",
-    role: "Lead Full-Stack Web Architect",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    bio: "Next.js, React, and UX specialist engineering sub-second websites that convert casual traffic into buyers.",
-    socials: {
-      facebook: "https://www.facebook.com/",
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-    },
+    number: "04",
+    tag: "PERFORMANCE",
+    name: "Dineshika Rathnayake",
+    role: "Digital Marketing Executive",
+    bio: "Digital Marketing Executive",
+    image: "/images/team/Dineshika-Rathnayake.jpg",
   },
 ];
 
@@ -218,64 +205,39 @@ export default function AboutPage() {
           {TEAM_MEMBERS.map((member, idx) => (
             <div
               key={idx}
-              className="group bg-white rounded-2xl overflow-hidden border border-black/5 shadow-xs hover:shadow-xl transition-all duration-300"
+              className="group relative bg-white rounded-3xl p-3 border border-black/8 shadow-xs hover:shadow-2xl hover:border-[#E3222A]/40 transition-all duration-500 flex flex-col justify-between"
             >
-              <div className="relative h-72 w-full overflow-hidden">
+              {/* Photo Area */}
+              <div className="relative h-[320px] sm:h-[340px] w-full rounded-2xl overflow-hidden bg-[#ECECEA]">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+
+                {/* Subtle gradient overlay at bottom of photo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+
+               
+
+                {/* Bottom role pill floating on image */}
+                <div className="absolute bottom-3 left-3 right-3 z-10">
+                  <span className="inline-block px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md text-[#E3222A] text-[11px] font-bold uppercase tracking-wider shadow-md">
+                    {member.role}
+                  </span>
+                </div>
               </div>
-              <div className="p-6">
-                <span className="text-[11px] font-bold text-[#E3222A] uppercase tracking-wider block mb-1">
-                  {member.role}
-                </span>
-                <h3 className="font-display text-2xl uppercase tracking-tight text-[#0F0F10] mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-xs text-[#6B6B6B] leading-relaxed mb-5">
-                  {member.bio}
-                </p>
-                {/* Social Links */}
-                <div className="flex items-center gap-2 pt-4 border-t border-black/5">
-                  {/* Facebook */}
-                  <Link
-                    href={member.socials.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} on Facebook`}
-                    className="w-8 h-8 rounded-full bg-[#F7F7F5] hover:bg-[#1877F2] text-[#6B6B6B] hover:text-white flex items-center justify-center transition-all duration-200"
-                  >
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-                    </svg>
-                  </Link>
-                  {/* Instagram */}
-                  <Link
-                    href={member.socials.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} on Instagram`}
-                    className="w-8 h-8 rounded-full bg-[#F7F7F5] hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#F77737] text-[#6B6B6B] hover:text-white flex items-center justify-center transition-all duration-200"
-                  >
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                    </svg>
-                  </Link>
-                  {/* LinkedIn */}
-                  <Link
-                    href={member.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} on LinkedIn`}
-                    className="w-8 h-8 rounded-full bg-[#F7F7F5] hover:bg-[#0A66C2] text-[#6B6B6B] hover:text-white flex items-center justify-center transition-all duration-200"
-                  >
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </Link>
+
+              {/* Card Content */}
+              <div className="p-4 pt-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="font-display text-2xl uppercase tracking-tight text-[#0F0F10] group-hover:text-[#E3222A] transition-colors leading-tight mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs text-[#6B6B6B] leading-relaxed">
+                    {member.bio}
+                  </p>
                 </div>
               </div>
             </div>

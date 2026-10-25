@@ -50,6 +50,11 @@ export default function Header() {
           {/* Logo on the Left using 10x-Logo.png (wide wordmark) */}
           <Link
             href="/"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
             className="relative flex items-center shrink-0 group focus:outline-none"
             data-cursor="link"
           >
