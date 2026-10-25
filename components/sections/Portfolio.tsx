@@ -104,7 +104,7 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10]/90 via-[#0F0F10]/20 to-transparent" />
 
                   {/* Top Category Badge (Unchanged) */}
-                  <div className="absolute top-4 left-4 z-10">
+                  <div className="absolute top-4 right-4 z-10">
                     <span className="inline-block px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[#0F0F10] text-[11px] font-bold uppercase tracking-wider shadow-sm">
                       {item.category}
                     </span>
@@ -130,9 +130,7 @@ export default function Portfolio() {
                   </div>
 
                   <div className="flex items-center justify-between pt-3 border-t border-black/5 mt-auto">
-                    <span className="text-xs font-bold text-[#25D366]">
-                      ⚡ {item.results}
-                    </span>
+                  
                     <div className="w-8 h-8 rounded-full bg-[#F7F7F5] group-hover:bg-[#E3222A] group-hover:text-white text-[#0F0F10] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5">
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
