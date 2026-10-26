@@ -8,7 +8,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CustomCursor from "@/components/effects/CustomCursor";
 import ScrollProgress from "@/components/effects/ScrollProgress";
 import Preloader from "@/components/effects/Preloader";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { BRAND, CONTACT } from "@/lib/constants";
 
 const anton = Anton({
@@ -142,13 +141,28 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${anton.variable} ${jakarta.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-6CNJMPME0G"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-6CNJMPME0G');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-[#F7F7F5] text-[#0F0F10] antialiased selection:bg-[#E3222A] selection:text-white">
-        <GoogleAnalytics />
         <SmoothScroll>
           {/* First visit preloader */}
           <Preloader />
