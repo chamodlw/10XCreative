@@ -8,6 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CustomCursor from "@/components/effects/CustomCursor";
 import ScrollProgress from "@/components/effects/ScrollProgress";
 import Preloader from "@/components/effects/Preloader";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { BRAND, CONTACT } from "@/lib/constants";
 
 const anton = Anton({
@@ -147,6 +148,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#F7F7F5] text-[#0F0F10] antialiased selection:bg-[#E3222A] selection:text-white">
+        <GoogleAnalytics />
         <SmoothScroll>
           {/* First visit preloader */}
           <Preloader />

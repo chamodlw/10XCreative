@@ -6,7 +6,7 @@ export const BRAND = {
   fullDescription: "From strategy to execution, we craft data-driven campaigns that accelerate growth, boost conversions, and scale visionary brands worldwide.",
   foundedYear: "2019",
   category: "Advertising / Marketing / Web Solutions",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://tenxcreative.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ten-x-creative.vercel.app",
 };
 
 export const CONTACT = {
