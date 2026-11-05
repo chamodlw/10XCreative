@@ -287,7 +287,7 @@ export const SERVICES: ServiceItem[] = [
     ],
     metrics: [
       { label: "Lighthouse Score", value: "98+" },
-      { label: "Load Time", value: "< 0.8s" },
+      { label: "Load Time", value: "< 1s" },
       { label: "Conversion Lift", value: "+185%" }
     ]
   }

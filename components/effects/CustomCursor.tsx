@@ -137,6 +137,18 @@ export default function CustomCursor() {
         style={{
           left: smoothX,
           top: smoothY,
+          backdropFilter:
+            cursorType === "view" || cursorType === "play"
+              ? "blur(4px)"
+              : cursorType === "link"
+              ? "invert(10%)"
+              : "none",
+          WebkitBackdropFilter:
+            cursorType === "view" || cursorType === "play"
+              ? "blur(4px)"
+              : cursorType === "link"
+              ? "invert(10%)"
+              : "none",
         }}
         animate={{
           scale: isMouseDown ? 0.85 : 1,
@@ -161,7 +173,7 @@ export default function CustomCursor() {
               ? "rgba(227, 34, 42, 0.92)"
               : cursorType === "link"
               ? "rgba(227, 34, 42, 0.2)"
-              : "transparent",
+              : "rgba(227, 34, 42, 0)",
           borderColor:
             cursorType === "view" || cursorType === "play"
               ? "#E3222A"
@@ -171,12 +183,6 @@ export default function CustomCursor() {
           borderWidth: cursorType === "view" || cursorType === "play" ? 0 : 1.5,
           borderStyle: "solid",
           borderRadius: 9999,
-          backdropFilter:
-            cursorType === "view" || cursorType === "play"
-              ? "blur(4px)"
-              : cursorType === "link"
-              ? "invert(10%)"
-              : "none",
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
       >

@@ -66,6 +66,7 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
             src="/10x-logo2-white.png"
             alt={BRAND.name}
             fill
+            sizes="144px"
             className="object-contain"
           />
         </Link>

@@ -108,6 +108,7 @@ export default function DigitalMarketing() {
                       src={CAPABILITIES[hoveredIdx].image}
                       alt={CAPABILITIES[hoveredIdx].title}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 42vw"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10] via-[#0F0F10]/20 to-transparent" />

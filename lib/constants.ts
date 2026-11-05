@@ -44,11 +44,11 @@ export const CONTACT = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Marketing", href: "/marketing" },
+  { label: "Creative", href: "/creative" },
+  { label: "Tech Build", href: "/tech-build" },
+  { label: "Analytics", href: "/analytics" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const STATS = [

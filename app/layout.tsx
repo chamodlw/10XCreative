@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Anton, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -139,30 +140,28 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${anton.variable} ${jakarta.variable}`}>
-      <head>
+    <html lang="en" className={`${anton.variable} ${jakarta.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen bg-[#F7F7F5] text-[#0F0F10] antialiased selection:bg-[#E3222A] selection:text-white" suppressHydrationWarning>
         {/* Google tag (gtag.js) */}
-        <script
-          async
+        <Script
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-6CNJMPME0G"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-              gtag('config', 'G-6CNJMPME0G');
-            `,
-          }}
-        />
+            gtag('config', 'G-6CNJMPME0G');
+          `}
+        </Script>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
-      </head>
-      <body className="min-h-screen bg-[#F7F7F5] text-[#0F0F10] antialiased selection:bg-[#E3222A] selection:text-white">
         <SmoothScroll>
           {/* First visit preloader */}
           <Preloader />

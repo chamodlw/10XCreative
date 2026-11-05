@@ -30,6 +30,7 @@ export default function About() {
                 src="/images/others/home-about.png"
                 alt="10X Creative Team Strategizing"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

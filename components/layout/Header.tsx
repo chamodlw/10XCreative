@@ -40,6 +40,7 @@ export default function Header() {
 
         <motion.div
           layout
+          suppressHydrationWarning
           transition={{ duration: 0.35, ease: "easeOut" }}
           className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled
@@ -64,6 +65,7 @@ export default function Header() {
                 alt="10X Creative"
                 fill
                 priority
+                sizes="(max-width: 640px) 144px, 256px"
                 className="object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -90,6 +92,7 @@ export default function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavPill"
+                      suppressHydrationWarning
                       className="absolute inset-0 bg-[#FFF1F1] rounded-full -z-0 border border-[#FFD5D7]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />

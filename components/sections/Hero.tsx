@@ -81,10 +81,11 @@ export default function Hero() {
           src="/hero-video.mp4"
           poster="/hero-video-screenshot.jpg"
           autoPlay
-          muted={isMuted}
+          muted
           loop
           playsInline
           preload="auto"
+          suppressHydrationWarning
           className="hidden md:block w-full h-full object-cover relative z-[1]"
         />
 
@@ -94,10 +95,11 @@ export default function Hero() {
           src="/hero-video-mobile.mp4"
           poster="/hero-video-mobile-screenshot.jpg"
           autoPlay
-          muted={isMuted}
+          muted
           loop
           playsInline
           preload="auto"
+          suppressHydrationWarning
           className="block md:hidden w-full h-full object-cover relative z-[1]"
         />
 

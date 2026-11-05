@@ -5,6 +5,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 export default function ScrollProgress() {
+  const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -16,6 +17,7 @@ export default function ScrollProgress() {
   const [percent, setPercent] = useState(0);
 
   useEffect(() => {
+    setMounted(true);
     return scrollYProgress.on("change", (latest) => {
       setShowBackToTop(latest > 0.15);
       setPercent(Math.round(latest * 100));
@@ -25,6 +27,10 @@ export default function ScrollProgress() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
