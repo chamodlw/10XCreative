@@ -97,7 +97,7 @@ export default function TechBuildPage() {
             <span>⚡</span> MODERN WEB ENGINEERING & TECH BUILD
           </div>
           <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.9] text-[#0F0F10] mb-6">
-            LIGHTNING-FAST WEB EXPERIENCES <span className="text-[#E3222A]">BUILT TO CONVERT</span>.
+            FAST WEB EXPERIENCES <span className="text-[#E3222A]">BUILT TO CONVERT</span>.
           </h1>
           <p className="text-lg sm:text-xl text-[#6B6B6B] leading-relaxed max-w-3xl mb-8">
             No bloated WordPress builders or sluggish templates. We architect bespoke digital flagships, high-conversion landing funnels, and modern e-commerce stores engineered with Next.js that load in under 1 second.
@@ -111,7 +111,7 @@ export default function TechBuildPage() {
               href={CONTACT.whatsapp.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#25D366] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#1EBE5D] transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-transparent text-[#0F0F10] font-bold text-sm uppercase tracking-wider border border-[#0F0F10] hover:bg-[#0F0F10] hover:text-white transition-colors"
             >
               <FaWhatsapp className="w-4 h-4" />
               <span>Discuss Tech Specs</span>

@@ -1,23 +1,27 @@
 export interface ClientItem {
   id: string;
   name: string;
-  category: string;
-  logoText: string;
-  badge?: string;
+  logo: string; // path relative to /public
 }
 
 export const CLIENTS_ROW_1: ClientItem[] = [
-  { id: "c1", name: "Travelco Holidays", category: "Travel & Tourism", logoText: "TRAVELCO HOLIDAYS", badge: "Outbound Tour Specialist" },
-  { id: "c2", name: "Royal Aquarium", category: "Retail & Pet Accessories", logoText: "ROYAL AQUARIUM", badge: "Aquatics & Pets" },
-  { id: "c3", name: "Nile Construction", category: "Civil Engineering", logoText: "NILE CONSTRUCTION", badge: "Engineering & Infrastructure" },
-  { id: "c4", name: "Aura Luxury Living", category: "Real Estate", logoText: "AURA RESIDENCES", badge: "Luxury Property" },
-  { id: "c5", name: "PureClean Solutions", category: "Home Services", logoText: "PURECLEAN", badge: "Facility Care" },
+  { id: "c1",  name: "Partner 1",  logo: "/images/partners/1.png"  },
+  { id: "c2",  name: "Partner 2",  logo: "/images/partners/2.png"  },
+  { id: "c3",  name: "Partner 3",  logo: "/images/partners/3.png"  },
+  { id: "c4",  name: "Partner 4",  logo: "/images/partners/4.png"  },
+  { id: "c5",  name: "Partner 5",  logo: "/images/partners/5.png"  },
+  { id: "c6",  name: "Partner 6",  logo: "/images/partners/6.png"  },
+  { id: "c7",  name: "Partner 7",  logo: "/images/partners/7.png"  },
+  { id: "c8",  name: "Partner 8",  logo: "/images/partners/8.png"  },
 ];
 
 export const CLIENTS_ROW_2: ClientItem[] = [
-  { id: "c6", name: "Velvet Roast Cafe", category: "F&B / Hospitality", logoText: "VELVET ROAST", badge: "Specialty Coffee" },
-  { id: "c7", name: "Apex Athletics Club", category: "Health & Fitness", logoText: "APEX ATHLETICS", badge: "High-Performance Gym" },
-  { id: "c8", name: "Pulse Nutrition", category: "Consumer Goods", logoText: "PULSE ENERGY", badge: "Sports Beverage" },
-  { id: "c9", name: "Heritage Retail", category: "Fashion & Lifestyle", logoText: "HERITAGE COLLECTIVE", badge: "Artisan Brands" },
-  { id: "c10", name: "Zenith FinTech", category: "Financial Services", logoText: "ZENITH CAPITAL", badge: "Fintech Growth" },
+  { id: "c9",  name: "Partner 9",  logo: "/images/partners/9.png"  },
+  { id: "c10", name: "Partner 10", logo: "/images/partners/10.png" },
+  { id: "c11", name: "Partner 11", logo: "/images/partners/11.png" },
+  { id: "c12", name: "Partner 12", logo: "/images/partners/12.png" },
+  { id: "c13", name: "Partner 13", logo: "/images/partners/13.png" },
+  { id: "c14", name: "Partner 14", logo: "/images/partners/14.png" },
+  { id: "c15", name: "Partner 15", logo: "/images/partners/15.png" },
+  { id: "c16", name: "Partner 16", logo: "/images/partners/16.png" },
 ];

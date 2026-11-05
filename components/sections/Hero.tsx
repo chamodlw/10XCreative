@@ -78,8 +78,8 @@ export default function Hero() {
         {/* Desktop Video */}
         <video
           ref={desktopVideoRef}
-          src="/hero-video.mp4"
-          poster="/hero-video-screenshot.jpg"
+          src="/video/hero-video.mp4"
+          poster="/images/others/hero-video.jpg"
           autoPlay
           muted
           loop
@@ -92,8 +92,8 @@ export default function Hero() {
         {/* Mobile Video */}
         <video
           ref={mobileVideoRef}
-          src="/hero-video-mobile.mp4"
-          poster="/hero-video-mobile-screenshot.jpg"
+          src="/video/hero-video-mobile.mp4"
+          poster="/images/others/hero-video-mobile.jpg"
           autoPlay
           muted
           loop

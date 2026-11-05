@@ -118,9 +118,15 @@ export default function CreativePage() {
             <Button href="/contact" variant="primary" size="lg" icon magnetic>
               Ignite Your Brand Creative
             </Button>
-            <Button href="/portfolio" variant="outline" size="lg" icon>
-              Browse Creative Archive
-            </Button>
+            <a
+              href={CONTACT.whatsapp.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-transparent text-[#0F0F10] font-bold text-sm uppercase tracking-wider border border-[#0F0F10] hover:bg-[#0F0F10] hover:text-white transition-colors"
+            >
+              <FaWhatsapp className="w-4 h-4" />
+              <span>Discuss on WhatsApp</span>
+            </a>
           </div>
         </div>
 
