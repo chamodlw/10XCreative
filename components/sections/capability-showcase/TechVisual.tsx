@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import CoffeeSite from "./CoffeeSite";
 
 /* 03 · TECH BUILD — MacBook with auto-scrolling sample site,
-   typing code editor + Lighthouse score ring */
+   overlapping typing code editor */
 
 const CODE_LINES = [
   { indent: 0, parts: [["#E3222A", "export default"], ["#0F0F10", " function"], ["#6B6B6B", " MyCoffee() {"]] },
@@ -27,23 +27,17 @@ export default function TechVisual() {
     return () => clearInterval(t);
   }, [reduce]);
 
-  const radius = 42;
-  const circ = 2 * Math.PI * radius;
-
   return (
-    <div className="relative mx-auto max-w-[560px] aspect-square">
-      {/* MacBook (back) */}
-      <div className="absolute top-0 right-0 w-[88%]">
-        <div className="rounded-t-[14px] bg-[#1A1A1A] p-[2.2%] pb-[2.8%] shadow-2xl border border-black/20">
+    <div className="relative mx-auto max-w-[560px]">
+      {/* MacBook screen (back) */}
+      <div className="ml-auto w-[88%]">
+        <div className="rounded-[14px] bg-[#1A1A1A] p-[2.2%] shadow-2xl border border-black/20">
           <CoffeeSite reduce={reduce} />
-        </div>
-        <div className="relative h-3 sm:h-3.5 -mx-[6%] rounded-b-[14px] bg-gradient-to-b from-[#D9D9DB] to-[#A9A9AD] shadow-xl">
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 w-[16%] h-1.5 rounded-b-md bg-[#8E8E93]/60" />
         </div>
       </div>
 
       {/* Code editor (front) */}
-      <div className="absolute bottom-0 left-0 w-[66%] rounded-2xl bg-white shadow-2xl border border-black/5 overflow-hidden">
+      <div className="relative z-10 -mt-[14%] w-[66%] rounded-2xl bg-white shadow-2xl border border-black/5 overflow-hidden">
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-black/5 bg-[#F7F7F5]">
           <span className="text-[10px] font-bold uppercase tracking-wider text-[#6B6B6B]">app/page.tsx</span>
           <span className="text-[10px] font-bold uppercase tracking-wider text-[#E3222A]">Next.js</span>
@@ -67,31 +61,6 @@ export default function TechVisual() {
               </motion.span>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Lighthouse ring */}
-      <div className="absolute bottom-4 right-1 sm:right-4 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white shadow-2xl flex items-center justify-center border border-black/5">
-        <svg viewBox="0 0 100 100" className="absolute inset-2 -rotate-90">
-          <circle cx="50" cy="50" r={radius} fill="none" stroke="#ECECEA" strokeWidth="7" />
-          <motion.circle
-            key={`ring-${cycle}`}
-            cx="50"
-            cy="50"
-            r={radius}
-            fill="none"
-            stroke="#E3222A"
-            strokeWidth="7"
-            strokeLinecap="round"
-            strokeDasharray={circ}
-            initial={{ strokeDashoffset: circ }}
-            animate={{ strokeDashoffset: circ * 0.02 }}
-            transition={{ duration: 1.4, delay: reduce ? 0 : 1.8, ease: "easeOut" }}
-          />
-        </svg>
-        <div className="text-center relative">
-          <span className="font-display text-2xl sm:text-3xl text-[#0F0F10] block leading-none">98</span>
-          <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[#6B6B6B]">Lighthouse</span>
         </div>
       </div>
     </div>

@@ -1,22 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
-/* 04 · ANALYTICS — drawing line chart + donut + live events */
-
-const EVENTS = ["Purchase · LKR 18,500", "Lead · WhatsApp", "Add to Cart", "Purchase · LKR 6,200", "Form Submit"];
+/* 04 · ANALYTICS — drawing line chart + overlapping donut card */
 
 export default function AnalyticsVisual() {
-  const reduce = useReducedMotion();
-  const [evt, setEvt] = useState(0);
-
-  useEffect(() => {
-    if (reduce) return;
-    const t = setInterval(() => setEvt((e) => (e + 1) % EVENTS.length), 1800);
-    return () => clearInterval(t);
-  }, [reduce]);
-
   const path = "M0,150 C40,140 60,120 90,125 C120,130 140,90 175,85 C210,80 230,100 260,70 C290,40 320,45 360,20";
   const points: [number, number][] = [
     [90, 125],
@@ -93,7 +81,7 @@ export default function AnalyticsVisual() {
       </div>
 
       {/* Donut */}
-      <div className="absolute bottom-0 left-0 sm:left-4 w-[46%] rounded-3xl bg-white p-5 shadow-2xl">
+      <div className="absolute bottom-[8%] left-0 sm:-left-6 w-[50%] rounded-3xl bg-white p-5 shadow-2xl z-10">
         <span className="text-[10px] font-bold uppercase tracking-wider text-[#6B6B6B] block mb-2">
           Channel Attribution
         </span>
@@ -127,30 +115,6 @@ export default function AnalyticsVisual() {
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#B8B8B8]" />Organic 25%</span>
           </div>
         </div>
-      </div>
-
-      {/* Live event feed */}
-      <div className="absolute bottom-0 right-0 sm:right-4 w-[48%] rounded-3xl bg-[#E3222A] p-5 shadow-2xl overflow-hidden">
-        <span className="text-[10px] font-bold uppercase tracking-wider text-white/80 block mb-2">
-          Server-Side Events
-        </span>
-        <div className="relative h-12">
-          <AnimatePresence mode="popLayout">
-            <motion.div
-              key={evt}
-              initial={{ y: 24, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -24, opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="absolute inset-x-0 flex items-center gap-2 text-white text-xs sm:text-sm font-bold"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
-              <span className="truncate">{EVENTS[evt]}</span>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        <span className="font-display text-2xl text-white block leading-none">+35%</span>
-        <span className="text-[10px] font-bold uppercase tracking-wider text-white/80">Data Recovered</span>
       </div>
     </div>
   );
