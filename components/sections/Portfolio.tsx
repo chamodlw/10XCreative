@@ -79,7 +79,7 @@ export default function Portfolio() {
         {/* Portfolio Bento Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
-            {filteredItems.slice(0, 6).map((item, idx) => (
+            {filteredItems.slice(0, 3).map((item, idx) => (
               <motion.div
                 key={item.id}
                 layout

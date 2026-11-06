@@ -23,11 +23,11 @@ export default function WhyUs() {
           >
             <div
               onClick={() => setVideoModalOpen(true)}
-              className="relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group border border-black/5"
+              className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl cursor-pointer group border border-black/5"
               data-cursor="play"
             >
               <video
-                src="/video/marketing-video.mp4"
+                src="/video/how%20we%20works.mp4"
                 muted
                 loop
                 autoPlay
@@ -99,7 +99,7 @@ export default function WhyUs() {
             </button>
             <div className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center">
               <video
-                src="/video/marketing-video.mp4"
+                src="/video/how%20we%20works.mp4"
                 controls
                 autoPlay
                 playsInline
