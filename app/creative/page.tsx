@@ -1,20 +1,14 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import {
   Video,
   Palette,
-  Sparkles,
   Film,
-  Camera,
   Layers,
-  CheckCircle2,
-  ArrowUpRight,
-  Eye,
-  Tv,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
-import SectionTitle from "@/components/ui/SectionTitle";
+import CapabilityExplorer from "@/components/service-page/CapabilityExplorer";
+import ProcessTimeline from "@/components/service-page/ProcessTimeline";
+import ServiceCTA from "@/components/service-page/ServiceCTA";
 import { CONTACT } from "@/lib/constants";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -26,7 +20,7 @@ export const metadata: Metadata = {
 
 const CREATIVE_PILLARS = [
   {
-    icon: Video,
+    icon: <Video />,
     title: "Viral Short-Form Video (Reels & TikTok)",
     desc: "Crafted specifically for the vertical algorithm. Sarcastic humor, witty storytelling, and relatable hooks designed to capture viewers in the first 1.5 seconds and trigger massive organic shares.",
     highlight: "10M+ Viral Views",
@@ -38,7 +32,7 @@ const CREATIVE_PILLARS = [
     ],
   },
   {
-    icon: Film,
+    icon: <Film />,
     title: "4K Cinematic Commercial Production",
     desc: "Broadcast-quality visual storytelling that positions your brand as an untouchable market leader. Full studio and on-location filming across Sri Lanka with professional directors and cinema cameras.",
     highlight: "4K Master Delivery",
@@ -50,7 +44,7 @@ const CREATIVE_PILLARS = [
     ],
   },
   {
-    icon: Palette,
+    icon: <Palette />,
     title: "Brand Identity & Visual Systems",
     desc: "A brand that looks premium can charge premium prices. We engineer distinct visual systems, iconic vector marks, bespoke color harmonies, and typography manuals that differentiate you instantly.",
     highlight: "60+ Brands Created",
@@ -62,7 +56,7 @@ const CREATIVE_PILLARS = [
     ],
   },
   {
-    icon: Layers,
+    icon: <Layers />,
     title: "Packaging & Advertising Collateral",
     desc: "Tangible brand experiences that command shelf space. From luxury cosmetic packaging and FMCG labels to high-impact highway billboards and retail merchandising collateral.",
     highlight: "100% Print-Ready CMYK",
@@ -156,127 +150,35 @@ export default function CreativePage() {
         </div>
       </section>
 
-      {/* ── 4 CREATIVE CAPABILITIES ─────────────────────────────────────────── */}
-      <section className="py-20 bg-white border-y border-black/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10">
-          <div className="max-w-3xl mb-16">
-            <SectionTitle
-              badge="OUR CREATIVE SPECTRUM"
-              title="UNCOMPROMISING AESTHETIC STANDARDS."
-              highlightWord="AESTHETIC"
-              subtitle="Every frame, vector curve, and sound design layer is engineered to reflect world-class quality."
-            />
-          </div>
+      {/* ── CREATIVE EXPLORER ───────────────────────────────────────────────── */}
+      <CapabilityExplorer
+        badge="WHAT WE CREATE"
+        title="CREATIVE THAT STOPS THE SCROLL."
+        highlightWord="STOPS"
+        subtitle="Pick a discipline to see what our directors, editors, and designers deliver."
+        items={CREATIVE_PILLARS.map((c) => ({ icon: c.icon, title: c.title, desc: c.desc, metric: c.highlight, features: c.deliverables }))}
+        ctaLabel="Start a Creative Brief"
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {CREATIVE_PILLARS.map((col, idx) => {
-              const Icon = col.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group p-8 sm:p-10 rounded-3xl bg-[#F7F7F5] border border-black/5 hover:border-[#E3222A]/40 hover:bg-white hover:shadow-2xl transition-all duration-400 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-[#0F0F10] text-[#E3222A] flex items-center justify-center group-hover:bg-[#E3222A] group-hover:text-white transition-colors">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white border border-black/5 text-[#E3222A]">
-                        {col.highlight}
-                      </span>
-                    </div>
+      {/* ── HOOK PHILOSOPHY ─────────────────────────────────────────────────── */}
+      <ProcessTimeline
+        badge="THE 1.5-SECOND HOOK PHILOSOPHY"
+        title="HOW WE ENGINEER ATTENTION."
+        highlightWord="ATTENTION"
+        subtitle="Four principles behind every frame, caption, and cut we ship."
+        steps={HOOK_PRINCIPLES.map((p) => ({ step: p.number, title: p.title, desc: p.desc }))}
+      />
 
-                    <h3 className="font-display text-2xl uppercase tracking-tight text-[#0F0F10] mb-3">
-                      {col.title}
-                    </h3>
-
-                    <p className="text-sm text-[#6B6B6B] leading-relaxed mb-6">
-                      {col.desc}
-                    </p>
-
-                    <div className="space-y-2.5 pt-4 border-t border-black/5 mb-6">
-                      {col.deliverables.map((item, dIdx) => (
-                        <div key={dIdx} className="flex items-center gap-2 text-xs font-semibold text-[#0F0F10]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#E3222A] shrink-0" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0F0F10] group-hover:text-[#E3222A] transition-colors"
-                  >
-                    <span>Commission Creative</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE 1.5-SECOND HOOK PHILOSOPHY ──────────────────────────────────── */}
-      <section className="py-24 bg-[#0F0F10] text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E3222A]/10 blur-[150px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-          <SectionTitle
-            badge="THE 10X CREATIVE CODE"
-            title="THE ANATOMY OF CONTENT THAT HOOKS."
-            highlightWord="ANATOMY"
-            subtitle="How we create viral engagement while building rock-solid brand equity."
-            dark
-            className="mb-16"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {HOOK_PRINCIPLES.map((step, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-[#E3222A]/50 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <span className="font-display text-4xl text-[#E3222A] block mb-4">
-                    {step.number}
-                  </span>
-                  <h3 className="font-display text-xl uppercase tracking-wider text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-white/70 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA BANNER ──────────────────────────────────────────────────────── */}
-      <section className="py-24 max-w-7xl mx-auto px-6 sm:px-10 text-center">
-        <div className="p-12 sm:p-20 rounded-3xl bg-white border border-black/5 shadow-xl relative overflow-hidden">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E3222A] mb-3 inline-block">
-            ⚡ ELEVATE YOUR BRAND AESTHETIC
-          </span>
-          <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-[#0F0F10] max-w-2xl mx-auto mb-6">
-            READY TO MAKE A STATEMENT IN YOUR MARKET?
-          </h2>
-          <p className="text-base text-[#6B6B6B] max-w-lg mx-auto mb-8">
-            Tell us about your campaign goals. Our directors and design leads will craft a tailored creative treatment within 48 hours.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button href="/contact" variant="primary" size="lg" icon magnetic>
-              Book a Creative Consultation
-            </Button>
-            <Button href="/portfolio" variant="outline" size="lg" icon>
-              View Featured Campaigns
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* ── CTA + CROSS-LINKS ───────────────────────────────────────────────── */}
+      <ServiceCTA
+        current="creative"
+        eyebrow="IGNITE YOUR BRAND"
+        title="READY TO BE IMPOSSIBLE TO IGNORE?"
+        text="Share your brand, product, or campaign idea. Our creative directors will come back with concepts and a production plan."
+        primaryLabel="Request Creative Proposal"
+        secondaryLabel="View Our Work"
+        marqueeWords={["Viral Reels", "4K Commercials", "Brand Identity", "Packaging", "10M+ Views"]}
+      />
     </div>
   );
 }

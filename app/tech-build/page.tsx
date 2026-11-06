@@ -1,20 +1,15 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import {
   Code2,
   Cpu,
-  Gauge,
-  Smartphone,
-  Layers,
-  CheckCircle2,
-  ArrowUpRight,
-  ShieldAlert,
-  Terminal,
   Zap,
   Globe,
-  Database,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
+import CapabilityExplorer from "@/components/service-page/CapabilityExplorer";
+import ProcessTimeline from "@/components/service-page/ProcessTimeline";
+import ServiceCTA from "@/components/service-page/ServiceCTA";
+import Marquee from "@/components/ui/Marquee";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { CONTACT } from "@/lib/constants";
 import { FaWhatsapp } from "react-icons/fa";
@@ -27,7 +22,7 @@ export const metadata: Metadata = {
 
 const TECH_PILLARS = [
   {
-    icon: Code2,
+    icon: <Code2 />,
     title: "Next.js 16 Web Flagships",
     desc: "Built from scratch with Next.js App Router, React 19, TypeScript, and Tailwind CSS. Supercharged with partial prerendering and server-side components for instant global response times.",
     metrics: "98+ Lighthouse Score",
@@ -39,7 +34,7 @@ const TECH_PILLARS = [
     ],
   },
   {
-    icon: Zap,
+    icon: <Zap />,
     title: "Conversion-Engineered Landing Funnels",
     desc: "Engineered specifically to convert cold paid advertising traffic into sales and WhatsApp inquiries. Zero fluff, frictionless form submissions, and zero layout shift.",
     metrics: "+185% Conversion Lift",
@@ -51,7 +46,7 @@ const TECH_PILLARS = [
     ],
   },
   {
-    icon: Globe,
+    icon: <Globe />,
     title: "Headless & Custom E-Commerce",
     desc: "Robust shopping experiences for high-volume retail. Custom headless Shopify storefronts, fast WooCommerce builds, and local Sri Lankan payment gateway integrations (PayHere, WebXPay, Genie).",
     metrics: "Sub-Second Checkout",
@@ -63,7 +58,7 @@ const TECH_PILLARS = [
     ],
   },
   {
-    icon: Cpu,
+    icon: <Cpu />,
     title: "Interactive Web Motion & Systems",
     desc: "Digital experiences that mesmerize users without hurting performance. Fluid spring animations with Framer Motion, buttery 60fps smooth scrolling with Lenis, and custom cursor telemetry.",
     metrics: "60 FPS Silky Smooth",
@@ -85,6 +80,13 @@ const STACK_BADGES = [
   { name: "Framer Motion", role: "60 FPS Micro-Interactions" },
   { name: "Lenis", role: "Inertial Smooth Scrolling" },
   { name: "Vercel Edge", role: "Global CDN Deployment" },
+];
+
+const BUILD_STEPS = [
+  { step: "01", title: "Architecture & Wireframes", desc: "Mapping user journeys, key conversion funnels, and frictionless wireframes before a single line of code." },
+  { step: "02", title: "Bespoke Visual Design", desc: "Crafting modern, award-tier UI in Figma with bold typography, motion specs, and custom design elements." },
+  { step: "03", title: "Next.js Development", desc: "Clean, typed, blazing-fast code with fluid interactions, responsive checks, and CMS or payment integrations." },
+  { step: "04", title: "SEO, QA & Launch", desc: "Lighthouse optimization, cross-browser testing, analytics wiring, CDN configuration, and live deployment." },
 ];
 
 export default function TechBuildPage() {
@@ -145,122 +147,63 @@ export default function TechBuildPage() {
         </div>
       </section>
 
-      {/* ── 4 TECH PILLARS ───────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white border-y border-black/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10">
-          <div className="max-w-3xl mb-16">
-            <SectionTitle
-              badge="ENGINEERING CAPABILITIES"
-              title="BUILT WITH MODERN STANDARDS."
-              highlightWord="STANDARDS"
-              subtitle="We combine clean code with high-end aesthetic design to turn websites into powerful commercial assets."
-            />
-          </div>
+      {/* ── ENGINEERING EXPLORER ────────────────────────────────────────────── */}
+      <CapabilityExplorer
+        badge="ENGINEERING CAPABILITIES"
+        title="BUILT WITH MODERN STANDARDS."
+        highlightWord="STANDARDS"
+        subtitle="Pick a build type to see how we turn websites into powerful commercial assets."
+        items={TECH_PILLARS.map((c) => ({ icon: c.icon, title: c.title, desc: c.desc, metric: c.metrics, features: c.features }))}
+        ctaLabel="Commission Build"
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TECH_PILLARS.map((col, idx) => {
-              const Icon = col.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group p-8 sm:p-10 rounded-3xl bg-[#F7F7F5] border border-black/5 hover:border-[#E3222A]/40 hover:bg-white hover:shadow-2xl transition-all duration-400 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-[#0F0F10] text-[#E3222A] flex items-center justify-center group-hover:bg-[#E3222A] group-hover:text-white transition-colors">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white border border-black/5 text-[#E3222A]">
-                        {col.metrics}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display text-2xl uppercase tracking-tight text-[#0F0F10] mb-3">
-                      {col.title}
-                    </h3>
-
-                    <p className="text-sm text-[#6B6B6B] leading-relaxed mb-6">
-                      {col.desc}
-                    </p>
-
-                    <div className="space-y-2.5 pt-4 border-t border-black/5 mb-6">
-                      {col.features.map((item, dIdx) => (
-                        <div key={dIdx} className="flex items-center gap-2 text-xs font-semibold text-[#0F0F10]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#E3222A] shrink-0" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0F0F10] group-hover:text-[#E3222A] transition-colors"
-                  >
-                    <span>Commission Build</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── MODERN TECH STACK ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0F0F10] text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E3222A]/10 blur-[150px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+      {/* ── TECH STACK ──────────────────────────────────────────────────────── */}
+      <section className="py-20 sm:py-24 bg-[#F7F7F5] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <SectionTitle
             badge="OUR TECHNOLOGY ARSENAL"
             title="NO LEGACY SOFTWARE. PURE MODERN CODE."
             highlightWord="MODERN"
-            subtitle="The exact modern stack powering top global software startups and high-converting commercial flagships."
-            dark
-            className="mb-16"
+            className="max-w-3xl"
           />
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {STACK_BADGES.map((tech, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#E3222A]/40 transition-colors text-center"
-              >
-                <span className="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#E3222A] block mb-1">
-                  {tech.name}
-                </span>
-                <span className="text-[11px] text-white/60 uppercase tracking-widest">
-                  {tech.role}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA BANNER ──────────────────────────────────────────────────────── */}
-      <section className="py-24 max-w-7xl mx-auto px-6 sm:px-10 text-center">
-        <div className="p-12 sm:p-20 rounded-3xl bg-white border border-black/5 shadow-xl relative overflow-hidden">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E3222A] mb-3 inline-block">
-            ⚡ UPGRADE TO MODERN CODE
-          </span>
-          <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-[#0F0F10] max-w-2xl mx-auto mb-6">
-            READY FOR A WEBSITE THAT ACTUALLY DRIVES LEADS?
-          </h2>
-          <p className="text-base text-[#6B6B6B] max-w-lg mx-auto mb-8">
-            Tell us about your project scope. Our senior engineering team will provide a technical architecture review and wireframe estimate.
+          <p className="text-sm text-[#6B6B6B] max-w-sm">
+            The exact stack powering top global startups and high-converting commercial flagships.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button href="/contact" variant="primary" size="lg" icon magnetic>
-              Request Tech Proposal
-            </Button>
-            <Button href="/portfolio" variant="outline" size="lg" icon>
-              View Built Flagships
-            </Button>
-          </div>
         </div>
+        <Marquee speed={35}>
+          {STACK_BADGES.map((tech) => (
+            <div
+              key={tech.name}
+              className="shrink-0 mx-2 px-8 py-6 rounded-2xl bg-white border border-black/5 hover:border-[#E3222A]/50 transition-colors"
+            >
+              <span className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-[#0F0F10] block">
+                {tech.name}
+              </span>
+              <span className="text-[11px] font-bold text-[#E3222A] uppercase tracking-widest">{tech.role}</span>
+            </div>
+          ))}
+        </Marquee>
       </section>
+
+      {/* ── BUILD PROCESS ───────────────────────────────────────────────────── */}
+      <ProcessTimeline
+        badge="HOW WE BUILD"
+        title="FROM WIREFRAME TO LIVE IN WEEKS."
+        highlightWord="LIVE"
+        subtitle="A focused four-stage build process with clear sign-offs at every step."
+        steps={BUILD_STEPS}
+      />
+
+      {/* ── CTA + CROSS-LINKS ───────────────────────────────────────────────── */}
+      <ServiceCTA
+        current="tech-build"
+        eyebrow="UPGRADE TO MODERN CODE"
+        title="READY FOR A WEBSITE THAT DRIVES LEADS?"
+        text="Tell us about your project scope. Our senior engineering team will provide a technical architecture review and wireframe estimate."
+        primaryLabel="Request Tech Proposal"
+        secondaryLabel="View Built Flagships"
+        marqueeWords={["Next.js", "Sub-Second Loads", "E-Commerce", "Landing Funnels", "98+ Lighthouse"]}
+      />
     </div>
   );
 }

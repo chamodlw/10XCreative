@@ -1,5 +1,5 @@
 import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
+import CapabilityShowcase from "@/components/sections/CapabilityShowcase";
 import About from "@/components/sections/About";
 import Portfolio from "@/components/sections/Portfolio";
 import Stats from "@/components/sections/Stats";
@@ -15,8 +15,8 @@ export default function HomePage() {
       {/* 5.1 Hero with hero-video.mp4 */}
       <Hero />
 
-      {/* 5.2 Services */}
-      <Services />
+      {/* 5.2 Capabilities: Marketing, Creative, Tech Build, Analytics */}
+      <CapabilityShowcase />
 
       <SparkDivider />
 

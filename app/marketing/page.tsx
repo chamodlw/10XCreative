@@ -1,22 +1,14 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import {
   TrendingUp,
   Target,
   Zap,
-  BarChart3,
-  CheckCircle2,
-  ArrowUpRight,
-  ShieldCheck,
-  Layers,
-  Sparkles,
-  Users2,
-  DollarSign,
   Search,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
-import SectionTitle from "@/components/ui/SectionTitle";
+import CapabilityExplorer from "@/components/service-page/CapabilityExplorer";
+import ProcessTimeline from "@/components/service-page/ProcessTimeline";
+import ServiceCTA from "@/components/service-page/ServiceCTA";
 import { CONTACT } from "@/lib/constants";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -28,7 +20,7 @@ export const metadata: Metadata = {
 
 const MARKETING_CHANNELS = [
   {
-    icon: Target,
+    icon: <Target />,
     title: "Meta Ads (Facebook & Instagram)",
     desc: "Precision demographic, psychographic, and lookalike targeting. From cold awareness video ads to high-converting dynamic catalog remarketing that delivers repeatable ROAS.",
     metrics: "4.8x Average ROAS",
@@ -40,7 +32,7 @@ const MARKETING_CHANNELS = [
     ],
   },
   {
-    icon: Search,
+    icon: <Search />,
     title: "Google Search & Performance Max",
     desc: "Capture high-intent buyers the exact moment they search for your products or services. Dominate top Google rankings with high quality-score keywords and smart bidding strategies.",
     metrics: "+160% Qualified Leads",
@@ -52,7 +44,7 @@ const MARKETING_CHANNELS = [
     ],
   },
   {
-    icon: Zap,
+    icon: <Zap />,
     title: "TikTok & Short-Form Paid Ads",
     desc: "Fast-moving viral ad sets engineered specifically for vertical feeds. We produce native-feeling, witty ad creative that stops the thumb and drives immediate checkouts.",
     metrics: "Sub-$0.12 CPC",
@@ -64,7 +56,7 @@ const MARKETING_CHANNELS = [
     ],
   },
   {
-    icon: TrendingUp,
+    icon: <TrendingUp />,
     title: "Full-Funnel Lead Generation",
     desc: "Turn clicks into qualified pipeline for real estate, education, corporate B2B, and high-ticket services. Multi-step funnels that filter out time-wasters and deliver hot leads straight to WhatsApp.",
     metrics: "-38% Lower CPL",
@@ -158,127 +150,35 @@ export default function MarketingPage() {
         </div>
       </section>
 
-      {/* ── 4 CORE MARKETING CHANNELS ───────────────────────────────────────── */}
-      <section className="py-20 bg-white border-y border-black/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10">
-          <div className="max-w-3xl mb-16">
-            <SectionTitle
-              badge="PAID CHANNELS WE DOMINATE"
-              title="SCALABLE ACQUISITION ENGINES."
-              highlightWord="ACQUISITION"
-              subtitle="We combine mathematical precision with creative brilliance across the world's most lucrative advertising networks."
-            />
-          </div>
+      {/* ── CHANNEL EXPLORER ────────────────────────────────────────────────── */}
+      <CapabilityExplorer
+        badge="PAID CHANNELS WE DOMINATE"
+        title="SCALABLE ACQUISITION ENGINES."
+        highlightWord="ACQUISITION"
+        subtitle="Pick a channel to see how we combine mathematical precision with creative brilliance across the world's most lucrative ad networks."
+        items={MARKETING_CHANNELS.map((c) => ({ icon: c.icon, title: c.title, desc: c.desc, metric: c.metrics, features: c.features }))}
+        ctaLabel="Launch Campaign"
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {MARKETING_CHANNELS.map((ch, idx) => {
-              const Icon = ch.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group p-8 sm:p-10 rounded-3xl bg-[#F7F7F5] border border-black/5 hover:border-[#E3222A]/40 hover:bg-white hover:shadow-2xl transition-all duration-400 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-[#0F0F10] text-[#E3222A] flex items-center justify-center group-hover:bg-[#E3222A] group-hover:text-white transition-colors">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white border border-black/5 text-[#E3222A]">
-                        {ch.metrics}
-                      </span>
-                    </div>
+      {/* ── PERFORMANCE FRAMEWORK ───────────────────────────────────────────── */}
+      <ProcessTimeline
+        badge="OUR PERFORMANCE FRAMEWORK"
+        title="HOW WE SCALE AD CAMPAIGNS SAFELY."
+        highlightWord="SCALE"
+        subtitle="No random guesswork. Every marketing rupee follows a tested, disciplined deployment framework."
+        steps={FRAMEWORK_STEPS}
+      />
 
-                    <h3 className="font-display text-2xl uppercase tracking-tight text-[#0F0F10] mb-3">
-                      {ch.title}
-                    </h3>
-
-                    <p className="text-sm text-[#6B6B6B] leading-relaxed mb-6">
-                      {ch.desc}
-                    </p>
-
-                    <div className="space-y-2.5 pt-4 border-t border-black/5 mb-6">
-                      {ch.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-center gap-2 text-xs font-semibold text-[#0F0F10]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#E3222A] shrink-0" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0F0F10] group-hover:text-[#E3222A] transition-colors"
-                  >
-                    <span>Launch Campaign</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4-STAGE GROWTH LOOP ────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0F0F10] text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E3222A]/10 blur-[150px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-          <SectionTitle
-            badge="OUR PERFORMANCE FRAMEWORK"
-            title="HOW WE SCALE AD CAMPAIGNS SAFELY."
-            highlightWord="SCALE"
-            subtitle="No random guesswork. Every marketing rupee follows a tested, disciplined deployment framework."
-            dark
-            className="mb-16"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {FRAMEWORK_STEPS.map((step, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-[#E3222A]/50 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <span className="font-display text-4xl text-[#E3222A] block mb-4">
-                    {step.step}
-                  </span>
-                  <h3 className="font-display text-xl uppercase tracking-wider text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-white/70 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── BIG CONVERSION CTA ──────────────────────────────────────────────── */}
-      <section className="py-24 max-w-7xl mx-auto px-6 sm:px-10 text-center">
-        <div className="p-12 sm:p-20 rounded-3xl bg-white border border-black/5 shadow-xl relative overflow-hidden">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E3222A] mb-3 inline-block">
-            ⚡ SCALE YOUR ROI TODAY
-          </span>
-          <h2 className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-[#0F0F10] max-w-2xl mx-auto mb-6">
-            READY TO OUTPERFORM YOUR COMPETITION?
-          </h2>
-          <p className="text-base text-[#6B6B6B] max-w-lg mx-auto mb-8">
-            Connect with our senior marketing team for a full ad account audit and tailored growth roadmap within 24 hours.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button href="/contact" variant="primary" size="lg" icon magnetic>
-              Request Free Ad Audit
-            </Button>
-            <Button href="/portfolio" variant="outline" size="lg" icon>
-              View Client Case Studies
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* ── CTA + CROSS-LINKS ───────────────────────────────────────────────── */}
+      <ServiceCTA
+        current="marketing"
+        eyebrow="SCALE YOUR ROI TODAY"
+        title="READY TO OUTPERFORM YOUR COMPETITION?"
+        text="Connect with our senior marketing team for a full ad account audit and tailored growth roadmap within 24 hours."
+        primaryLabel="Request Free Ad Audit"
+        secondaryLabel="View Case Studies"
+        marqueeWords={["Meta Ads", "Google PMax", "TikTok Ads", "Lead Generation", "4.8X ROAS"]}
+      />
     </div>
   );
 }
