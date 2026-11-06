@@ -25,13 +25,6 @@ export default function ExploreCapabilities({ current }: { current: CapabilityLi
             Explore other <span className="text-[#E3222A]">capabilities</span>
           </h2>
         </div>
-        <Link
-          href="/services"
-          data-cursor="link"
-          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0F0F10] hover:text-[#E3222A] transition-colors"
-        >
-          All services <ArrowUpRight className="w-4 h-4" />
-        </Link>
       </div>
 
       <div className="border-t border-[#0F0F10]/15">

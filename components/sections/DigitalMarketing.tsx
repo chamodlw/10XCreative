@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import Button from "@/components/ui/Button";
 
 interface CapabilityRow {
   id: string;
@@ -23,7 +22,7 @@ const CAPABILITIES: CapabilityRow[] = [
     category: "Performance Marketing",
     description: "Capture high-intent searches with precision keywords, bidding strategies, and conversion tracking.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    link: "/services/paid-advertising",
+    link: "/marketing",
   },
   {
     id: "smm",
@@ -31,7 +30,7 @@ const CAPABILITIES: CapabilityRow[] = [
     category: "Community & Brand",
     description: "Build deep resonance with curated content calendars, active community stewardship, and viral reels.",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
-    link: "/services/social-media-marketing",
+    link: "/marketing",
   },
   {
     id: "seo",
@@ -39,7 +38,7 @@ const CAPABILITIES: CapabilityRow[] = [
     category: "Search Visibility",
     description: "Dominate Google search results organically with structured data, technical speed, and content clusters.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    link: "/services/web-designing",
+    link: "/tech-build",
   },
   {
     id: "brand",
@@ -47,7 +46,7 @@ const CAPABILITIES: CapabilityRow[] = [
     category: "Creative Identity",
     description: "Craft a commanding brand persona, visual guidelines, and market differentiation that commands respect.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
-    link: "/services/graphic-designing",
+    link: "/creative",
   },
   {
     id: "campaigns",
@@ -55,7 +54,7 @@ const CAPABILITIES: CapabilityRow[] = [
     category: "Growth Scaling",
     description: "Harmonize digital touchpoints across advertising, creators, and web experiences for unstoppable momentum.",
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
-    link: "/services",
+    link: "/marketing",
   },
 ];
 
@@ -156,12 +155,6 @@ export default function DigitalMarketing() {
                 </div>
               </Link>
             ))}
-
-            <div className="pt-8">
-              <Button href="/services" variant="primary" size="md" icon>
-                Explore All Services
-              </Button>
-            </div>
           </div>
         </div>
       </div>

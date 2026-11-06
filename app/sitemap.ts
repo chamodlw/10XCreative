@@ -1,5 +1,4 @@
 import { MetadataRoute } from "next";
-import { SERVICES } from "@/data/services";
 import { BRAND } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -51,12 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -77,12 +70,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.85,
-  }));
-
-  return [...staticRoutes, ...serviceRoutes];
+  return staticRoutes;
 }

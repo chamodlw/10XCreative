@@ -31,8 +31,6 @@ Built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **Framer 
 - **Full Page Suite**:
   - `/` (Home: 10 structured sections)
   - `/about` (Story, 5-stage framework, core values, team, stats)
-  - `/services` (All 6 core capabilities)
-  - `/services/[slug]` (Dynamic slug pages with deliverables, process, metrics, and FAQ accordions)
   - `/portfolio` (Filterable gallery with categories and interactive modal lightbox)
   - `/contact` (Interactive form, contact cards, Colombo office map embed)
   - `/not-found` (Custom 404 with broken bolt animation)

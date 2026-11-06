@@ -18,14 +18,12 @@ import {
 } from "lucide-react";
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 import { BRAND, CONTACT } from "@/lib/constants";
-import { SERVICES } from "@/data/services";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2026);
   const [emailSubscribed, setEmailSubscribed] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
@@ -196,7 +194,6 @@ export default function Footer() {
                 { label: "About Us", href: "/about" },
                 { label: "Portfolio", href: "/portfolio" },
                 { label: "Contact Us", href: "/contact" },
-                { label: "Services", href: "/services" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
