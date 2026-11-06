@@ -16,9 +16,6 @@ export default function BlogPage() {
     <div className="pt-28 sm:pt-36 bg-[#F7F7F5] min-h-screen">
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 pb-12">
-        <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF1F1] text-[#E3222A] text-xs font-bold uppercase tracking-wider mb-6 border border-[#FFD5D7]">
-          <span>⚡</span> INSIGHTS & IDEAS
-        </span>
         <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.9] text-[#0F0F10] mb-6">
           The 10X <span className="text-[#E3222A]">Blog</span>.
         </h1>

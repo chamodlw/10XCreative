@@ -65,7 +65,7 @@ export default function WhyUs() {
             className="lg:col-span-6 flex flex-col justify-center"
           >
             <SectionTitle
-              badge="WHY CHOOSE US"
+              badge="The 10X Edge"
               title="READY TO MAKE YOUR MARK IN THE DIGITAL WORLD?"
               highlightWord="DIGITAL"
               subtitle="From startups to established enterprises, we've partnered with businesses across industries to amplify their digital presence and achieve exceptional growth."

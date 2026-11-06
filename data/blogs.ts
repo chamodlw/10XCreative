@@ -31,7 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "5 min read",
     author: "10X Creative Team",
     tags: ["Lead Generation", "WhatsApp", "Funnels"],
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1600&q=80",
+    image: "/images/blogs/1.avif",
     imageAlt: "Person holding a smartphone over a desk with planning notes",
     content: [
       {
@@ -84,8 +84,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "6 min read",
     author: "10X Creative Team",
     tags: ["Landing Pages", "CRO", "Web Design"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Laptop displaying website analytics and charts",
+    image: "/images/blogs/2.png",
+    imageAlt: "Laptop and smartphone showing a modern landing page with red call-to-action buttons",
     content: [
       {
         type: "p",
@@ -146,8 +146,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "6 min read",
     author: "10X Creative Team",
     tags: ["Paid Ads", "Meta", "ROAS"],
-    image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Smartphone screen showing social media app icons",
+    image: "/images/blogs/3.avif",
+    imageAlt: "Laptop on a desk showing an ads performance dashboard with charts",
     content: [
       {
         type: "p",
@@ -197,7 +197,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "5 min read",
     author: "10X Creative Team",
     tags: ["Video", "Reels", "TikTok"],
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80",
+    image: "/images/blogs/4.avif",
     imageAlt: "Video editing timeline on a monitor",
     content: [
       {
@@ -246,7 +246,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "5 min read",
     author: "10X Creative Team",
     tags: ["Web Design", "Next.js", "Performance"],
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+    image: "/images/blogs/5.avif",
     imageAlt: "Laptop on a desk showing website code",
     content: [
       {
@@ -289,7 +289,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "6 min read",
     author: "10X Creative Team",
     tags: ["Tracking", "Attribution", "GA4"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+    image: "/images/blogs/6.avif",
     imageAlt: "Analytics dashboard with charts and graphs",
     content: [
       {

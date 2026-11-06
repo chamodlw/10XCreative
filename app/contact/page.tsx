@@ -190,9 +190,6 @@ export default function ContactPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 pb-12">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF1F1] text-[#E3222A] text-xs font-bold uppercase tracking-wider mb-6 border border-[#FFD5D7]">
-            <span>⚡</span> GET IN TOUCH
-          </div>
           <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.9] text-[#0F0F10] mb-6">
             START YOUR <span className="text-[#E3222A]">10X</span> JOURNEY.
           </h1>

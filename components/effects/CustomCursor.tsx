@@ -188,7 +188,7 @@ export default function CustomCursor() {
       >
         {cursorType === "view" && (
           <span className="text-[12px] font-bold tracking-widest text-white flex items-center gap-1 select-none">
-            VIEW <span className="text-yellow-300">⚡</span>
+            VIEW
           </span>
         )}
         {cursorType === "play" && (
