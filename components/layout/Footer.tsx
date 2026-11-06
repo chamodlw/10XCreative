@@ -17,7 +17,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
-import { BRAND, CONTACT, NAV_LINKS } from "@/lib/constants";
+import { BRAND, CONTACT } from "@/lib/constants";
 import { SERVICES } from "@/data/services";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -92,7 +92,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Link href="/" className="relative w-44 h-12 block group" data-cursor="link">
               <Image
-                src="/10x-logo2-white.png"
+                src="/10x-logo-white.png"
                 alt={BRAND.name}
                 fill
                 sizes="176px"
@@ -100,8 +100,8 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-xs text-white/70 leading-relaxed max-w-xs">
-              {BRAND.fullDescription}
+            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
+              {BRAND.shortDescription}
             </p>
 
             {/* Live Office Status */}
@@ -138,7 +138,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 data-cursor="link"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 group"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E3222A] hover:border-[#E3222A] transition-all duration-300 group"
               >
                 <FaWhatsapp className="w-4 h-4 text-white/80 group-hover:text-white group-hover:scale-110 transition-transform" />
               </a>
@@ -155,14 +155,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Growth Pillars (Header Tags) */}
+          {/* Column 2: Growth Pillars (Capabilities) */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E3222A]" />
               Growth Pillars
             </h4>
-            <ul className="space-y-3 text-xs">
-              {NAV_LINKS.map((link) => (
+            <ul className="space-y-3 text-sm">
+              {[
+                { label: "Marketing", href: "/marketing" },
+                { label: "Creative", href: "/creative" },
+                { label: "Tech Build", href: "/tech-build" },
+                { label: "Analytics", href: "/analytics" },
+              ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -177,78 +182,36 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/contact"
-                  data-cursor="link"
-                  className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono text-[#E3222A] opacity-60 group-hover:opacity-100">→</span>
-                    <span>Contact Us</span>
-                  </span>
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Column 3: About & Company Links */}
+          {/* Column 3: Company */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E3222A]" />
-              About & Operations
+              Company
             </h4>
-            <ul className="space-y-3 text-xs">
-              <li>
-                <Link
-                  href="/about"
-                  data-cursor="link"
-                  className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
-                >
-                  <span>Our Vision & Mission</span>
-                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1.5px] bg-[#E3222A]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about#team"
-                  data-cursor="link"
-                  className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
-                >
-                  <span>Leadership & Ajwad Ameer</span>
-                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1.5px] bg-[#E3222A]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about#framework"
-                  data-cursor="link"
-                  className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
-                >
-                  <span>The 5-Stage Framework</span>
-                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1.5px] bg-[#E3222A]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  data-cursor="link"
-                  className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
-                >
-                  <span>Full Services Overview</span>
-                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1.5px] bg-[#E3222A]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/portfolio"
-                  data-cursor="link"
-                  className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
-                >
-                  <span>Featured Case Studies</span>
-                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1.5px] bg-[#E3222A]" />
-                </Link>
-              </li>
+            <ul className="space-y-3 text-sm">
+              {[
+                { label: "About Us", href: "/about" },
+                { label: "Portfolio", href: "/portfolio" },
+                { label: "Contact Us", href: "/contact" },
+                { label: "Services", href: "/services" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    data-cursor="link"
+                    className="text-white/70 hover:text-[#E3222A] transition-colors relative inline-block group"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono text-[#E3222A] opacity-60 group-hover:opacity-100">→</span>
+                      <span>{link.label}</span>
+                    </span>
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1.5px] bg-[#E3222A]" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -303,11 +266,15 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">
-            <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
+            <Link href="/privacy-policy" data-cursor="link" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
             <span className="hidden sm:inline text-white/20">•</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
+            <Link href="/terms-of-service" data-cursor="link" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
             <span className="hidden sm:inline text-white/20">•</span>
-            <span className="text-white/40">Engineered with Next.js in Sri Lanka</span>
+            <span className="text-white/40">Powered by 10XCreative</span>
           </div>
         </div>
       </div>
