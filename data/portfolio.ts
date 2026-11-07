@@ -21,61 +21,61 @@ export interface CaseStat {
 export type CaseSection =
   | { type: "text"; eyebrow?: string; heading: string; body: string[] }
   | {
-      type: "list";
-      eyebrow?: string;
-      heading: string;
-      intro?: string;
-      items: string[];
-      outro?: string;
-    }
+    type: "list";
+    eyebrow?: string;
+    heading: string;
+    intro?: string;
+    items: string[];
+    outro?: string;
+  }
   | {
-      type: "columns";
-      eyebrow?: string;
-      heading: string;
-      intro?: string;
-      columns: { title: string; items: string[] }[];
-      outro?: string;
-    }
+    type: "columns";
+    eyebrow?: string;
+    heading: string;
+    intro?: string;
+    columns: { title: string; items: string[] }[];
+    outro?: string;
+  }
   | {
-      type: "steps";
-      eyebrow?: string;
-      heading: string;
-      intro?: string;
-      steps: { title: string; body?: string }[];
-      outro?: string;
-    }
+    type: "steps";
+    eyebrow?: string;
+    heading: string;
+    intro?: string;
+    steps: { title: string; body?: string }[];
+    outro?: string;
+  }
   | {
-      type: "stats";
-      eyebrow?: string;
-      heading: string;
-      intro?: string;
-      stats: CaseStat[];
-      outro?: string;
-    }
+    type: "stats";
+    eyebrow?: string;
+    heading: string;
+    intro?: string;
+    stats: CaseStat[];
+    outro?: string;
+  }
   | {
-      type: "gallery";
-      eyebrow?: string;
-      heading: string;
-      intro?: string;
-      /** posters: 4:5 tiles · portrait: tall phone screenshots · wide: landscape */
-      layout: "posters" | "portrait" | "wide";
-      images: CaseImage[];
-      links?: { label: string; href: string }[];
-    }
+    type: "gallery";
+    eyebrow?: string;
+    heading: string;
+    intro?: string;
+    /** posters: 4:5 tiles · portrait: tall phone screenshots · wide: landscape */
+    layout: "posters" | "portrait" | "wide";
+    images: CaseImage[];
+    links?: { label: string; href: string }[];
+  }
   | {
-      type: "social";
-      eyebrow?: string;
-      heading: string;
-      intro?: string;
-      platforms: { name: string; count: string; unit: string }[];
-    }
+    type: "social";
+    eyebrow?: string;
+    heading: string;
+    intro?: string;
+    platforms: { name: string; count: string; unit: string }[];
+  }
   | {
-      type: "quote";
-      quote: string[];
-      author: string;
-      role: string;
-      avatar?: string;
-    };
+    type: "quote";
+    quote: string[];
+    author: string;
+    role: string;
+    avatar?: string;
+  };
 
 export interface PortfolioCompany {
   slug: string;
@@ -197,7 +197,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
         heading: "What the numbers tell us.",
         items: [
           "Meta campaigns reached over 7.5 million unique users, building strong brand visibility across key travel markets.",
-          "127 million impressions at an average frequency of 17 kept audiences repeatedly engaged — crucial for high-ticket travel decisions.",
+          "127 million impressions at an average frequency of 17 kept audiences repeatedly engaged - crucial for high-ticket travel decisions.",
           "41,695 leads from 1.25M clicks: a 3.3% click-to-lead rate and a steady inquiry pipeline.",
           "15% of leads converted into WhatsApp conversations, giving the sales team warm, actionable prospects.",
           "Short-form video and branded creatives significantly enhanced engagement, reinforcing Travelco's authority in the travel market.",
@@ -264,7 +264,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
         eyebrow: "Video Content & Reels",
         heading: "We make you go viral.",
         intro:
-          "Short-form video played a key role in driving engagement. We produced employee-generated content covering group tour promotions, offers & travel promotions, and storytelling — increasing engagement, boosting organic reach and improving ad performance.",
+          "Short-form video played a key role in driving engagement. We produced employee-generated content covering group tour promotions, offers & travel promotions, and storytelling - increasing engagement, boosting organic reach and improving ad performance.",
         stats: [
           { value: "108K", label: "Views", note: "Top-performing reel" },
           { value: "3,728", label: "Likes" },
@@ -284,11 +284,11 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
       {
         type: "text",
         eyebrow: "Content Series",
-        heading: "Entrepreneur's Lens — powered by Travelco Holidays.",
+        heading: "Entrepreneur's Lens - powered by Travelco Holidays.",
         body: [
           "Entrepreneur's Lens is a social media content series created to highlight the importance of travel in the life of an entrepreneur and how it shapes ideas, mindset and business growth.",
           "The first episode features Shevon Perera, Founder of Mongolian Street Restaurants in Sri Lanka, sharing how his travel experiences played a key role in building a successful restaurant chain that brings authentic Mongolian cuisine to the Sri Lankan community.",
-          "As the creative crew, we visited the location, filmed the full story and handled the editing and post-production — plus short-form highlights cut from the full-length YouTube episode.",
+          "As the creative crew, we visited the location, filmed the full story and handled the editing and post-production - plus short-form highlights cut from the full-length YouTube episode.",
         ],
       },
       {
@@ -389,7 +389,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
         type: "quote",
         quote: [
           "I'm really happy with the work 10X Creative did for us! Their team made our ads way more effective, and we saw a big jump in new customers. The graphics they designed looked awesome and made our brand stand out. Plus, the videos they created were super professional and got a lot of attention online.",
-          "Everyone was friendly and easy to talk to — they always kept us in the loop. I'd definitely recommend them if you need help with digital advertising, graphics, or videos.",
+          "Everyone was friendly and easy to talk to - they always kept us in the loop. I'd definitely recommend them if you need help with digital advertising, graphics, or videos.",
         ],
         author: "Zanfer Sheriff",
         role: "Founder & CEO, Travelco Holidays",
@@ -406,12 +406,12 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     location: "Adelaide, Australia",
     categories: ["Performance Marketing", "Creative & Content", "Branding"],
     services: ["Funnel Strategy", "Landing Page", "Lead Magnet eBook", "Meta Pixel + CAPI", "Ad Creatives", "Logo Design"],
-    headline: "Turning a skeptical market into a predictable lead funnel — by giving value first.",
+    headline: "Turning a skeptical market into a predictable lead funnel - by giving value first.",
     excerpt:
       "A new pre-construction brand in Adelaide went from wasted ad spend to AUD 14 conversions with a trust-first eBook funnel.",
     overview: [
       "SculptureU is a pre-construction consultant in Adelaide, South Australia, helping people plan their home builds before they commit to a builder.",
-      "As a brand new business with no prior market presence, SculptureU needed to establish authority and trust before asking anyone for their contact details — on a limited budget.",
+      "As a brand new business with no prior market presence, SculptureU needed to establish authority and trust before asking anyone for their contact details - on a limited budget.",
     ],
     period: "Nov 2025 – Feb 2026",
     brandColor: "#1F3A5F",
@@ -656,7 +656,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
       {
         type: "columns",
         eyebrow: "Influencer & UGC Growth Strategy",
-        heading: "Original vs. fake — content that builds trust.",
+        heading: "Original vs. fake - content that builds trust.",
         intro: "To improve brand trust and engagement, we introduced influencer-led content marketing.",
         columns: [
           {
@@ -719,7 +719,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     services: ["Meta Lead Generation", "Messaging Campaigns", "Location Targeting", "UGC & Testimonial Video", "Content Creator"],
     headline: "From low-quality leads to a high-performing patient acquisition engine.",
     excerpt:
-      "A quality-first Meta funnel for a multi-clinic wellness brand — hundreds of high-quality enquiries every month.",
+      "A quality-first Meta funnel for a multi-clinic wellness brand - hundreds of high-quality enquiries every month.",
     overview: [
       "Qudhrath Healthcare (QHC) is a wellness and holistic healthcare brand in Sri Lanka offering Hijama (cupping), weight loss, diabetic recovery and natural therapy programs.",
       "The brand operates multiple clinics across Colombo and focuses on helping patients achieve long-term wellness through natural treatment solutions.",
@@ -956,7 +956,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     categories: ["Branding"],
     services: ["Logo Design", "Brand Identity"],
     headline: "A premium travel identity for a US-based travel agency.",
-    excerpt: "Logo design for a travel agency in the United States — a monogram mark built for signage and screens.",
+    excerpt: "Logo design for a travel agency in the United States - a monogram mark built for signage and screens.",
     overview: [
       "Island Voyages is a travel agency in the United States and a subsidiary of United States Voyages.",
       "10X Creative designed the Island Voyages logo: a bold \"V\" monogram with a sweeping travel arc and aircraft motif, set in a classic serif wordmark that reads as premium and trustworthy on everything from building signage to social profiles.",

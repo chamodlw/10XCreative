@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import CoffeeSite from "./CoffeeSite";
 
-/* 03 · TECH BUILD — MacBook with auto-scrolling sample site,
+/* 03 · TECH BUILD - MacBook with auto-scrolling sample site,
    overlapping typing code editor */
 
 const CODE_LINES = [

@@ -116,7 +116,7 @@ export default function Testimonials() {
                     {/* Quotation text */}
                     <div className="relative mb-6">
                       <Quote className="w-8 h-8 text-[#E3222A]/25 mb-2 -scale-x-100" />
-                      <p className="text-sm sm:text-base text-white/85 leading-relaxed italic line-clamp-6">
+                      <p className="text-sm sm:text-base text-white/85 leading-relaxed italic whitespace-pre-line">
                         &ldquo;{item.quote}&rdquo;
                       </p>
                     </div>

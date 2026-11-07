@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-/* 01 · MARKETING — live campaign dashboard with growing bars */
+/* 01 · MARKETING - live campaign dashboard with growing bars */
 
 export default function MarketingVisual() {
   const reduce = useReducedMotion();
@@ -28,9 +28,8 @@ export default function MarketingVisual() {
           {bars.map((h, i) => (
             <motion.div
               key={i}
-              className={`flex-1 rounded-t-lg origin-bottom ${
-                i === bars.length - 1 ? "bg-[#E3222A]" : "bg-[#0F0F10]/85"
-              }`}
+              className={`flex-1 rounded-t-lg origin-bottom ${i === bars.length - 1 ? "bg-[#E3222A]" : "bg-[#0F0F10]/85"
+                }`}
               style={{ height: `${h}%` }}
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}

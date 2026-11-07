@@ -36,7 +36,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "For many Sri Lankan businesses, WhatsApp is where sales actually happen. Customers want to ask a quick question, see a price and talk to a real person — not wait for a callback after filling in a long form. Click-to-WhatsApp ads meet them exactly where they already are.",
+        text: "For many Sri Lankan businesses, WhatsApp is where sales actually happen. Customers want to ask a quick question, see a price and talk to a real person - not wait for a callback after filling in a long form. Click-to-WhatsApp ads meet them exactly where they already are.",
       },
       { type: "h2", text: "Why WhatsApp beats the traditional lead form" },
       {
@@ -51,7 +51,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "1. Start with a clear, specific offer" },
       {
         type: "p",
-        text: "“Message us for more info” rarely works. A specific reason to start the chat — a price list, a free consultation, a limited-time package — sets expectations and attracts people who are ready to buy.",
+        text: "“Message us for more info” rarely works. A specific reason to start the chat - a price list, a free consultation, a limited-time package - sets expectations and attracts people who are ready to buy.",
       },
       { type: "h2", text: "2. Pre-fill the first message" },
       {
@@ -61,7 +61,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "3. Qualify with quick replies" },
       {
         type: "p",
-        text: "A short automated welcome with two or three quick-reply questions — budget, location, timeline — filters out tyre-kickers and hands your team leads that are worth their time.",
+        text: "A short automated welcome with two or three quick-reply questions - budget, location, timeline - filters out tyre-kickers and hands your team leads that are worth their time.",
       },
       {
         type: "quote",
@@ -104,7 +104,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "3. Benefits before features" },
       {
         type: "p",
-        text: "Visitors care about what changes for them. Lead with outcomes — more time, more sales, less stress — and support them with the features that make those outcomes possible.",
+        text: "Visitors care about what changes for them. Lead with outcomes - more time, more sales, less stress - and support them with the features that make those outcomes possible.",
       },
       { type: "h2", text: "4. Real social proof" },
       {
@@ -115,7 +115,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: "list",
         items: [
-          "Ask only for what you need to follow up — often just a name and phone number",
+          "Ask only for what you need to follow up - often just a name and phone number",
           "Offer WhatsApp as an alternative to the form",
           "Show what happens next so there is no uncertainty after submitting",
         ],
@@ -141,7 +141,7 @@ export const BLOG_POSTS: BlogPost[] = [
     capability: "marketing",
     title: "The Meta Ads ROAS Playbook for Sri Lankan Brands",
     excerpt:
-      "How we structure campaigns, audiences and creative testing to push return on ad spend past 4X — without simply raising the budget.",
+      "How we structure campaigns, audiences and creative testing to push return on ad spend past 4X - without simply raising the budget.",
     date: "2026-10-28",
     readTime: "6 min read",
     author: "10X Creative Team",
@@ -151,7 +151,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "Most Sri Lankan businesses running Meta ads hit the same wall: costs climb, results flatten, and the only lever anyone pulls is the budget. Scaling profitably is not about spending more — it is about spending in the right structure, against the right signals, with creative that earns attention.",
+        text: "Most Sri Lankan businesses running Meta ads hit the same wall: costs climb, results flatten, and the only lever anyone pulls is the budget. Scaling profitably is not about spending more - it is about spending in the right structure, against the right signals, with creative that earns attention.",
       },
       { type: "h2", text: "1. Simplify your account structure" },
       {
@@ -169,7 +169,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "2. Let creative do the targeting" },
       {
         type: "p",
-        text: "With broad audiences, your creative is your targeting. A hook aimed at busy mothers in Colombo will find busy mothers in Colombo. We test three to five distinct concepts per month — not tiny variations of the same ad — and scale the winners.",
+        text: "With broad audiences, your creative is your targeting. A hook aimed at busy mothers in Colombo will find busy mothers in Colombo. We test three to five distinct concepts per month - not tiny variations of the same ad - and scale the winners.",
       },
       { type: "h2", text: "3. Feed the algorithm better data" },
       {
@@ -178,7 +178,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "quote",
-        text: "Budget amplifies what is already working. Fix structure, creative and data first — then scale.",
+        text: "Budget amplifies what is already working. Fix structure, creative and data first - then scale.",
       },
       { type: "h2", text: "4. Judge results on revenue, not clicks" },
       {
@@ -202,7 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "Short-form video is now the main way people discover brands. But audiences decide almost instantly whether to keep watching. If your opening does not earn attention, the rest of your video — however beautiful — never gets seen.",
+        text: "Short-form video is now the main way people discover brands. But audiences decide almost instantly whether to keep watching. If your opening does not earn attention, the rest of your video - however beautiful - never gets seen.",
       },
       { type: "h2", text: "Start with the payoff, not the logo" },
       {
@@ -232,7 +232,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "Shoot in batches, edit for each platform" },
       {
         type: "p",
-        text: "We plan shoot days to capture a month of content at once, then cut separate edits for Reels, TikTok and YouTube Shorts — each with its own pacing, length and caption style.",
+        text: "We plan shoot days to capture a month of content at once, then cut separate edits for Reels, TikTok and YouTube Shorts - each with its own pacing, length and caption style.",
       },
     ],
   },
@@ -284,7 +284,7 @@ export const BLOG_POSTS: BlogPost[] = [
     capability: "analytics",
     title: "Server-Side Tracking Explained: Stop Losing Conversion Data",
     excerpt:
-      "Ad blockers and privacy changes hide a large part of your conversions. Server-side tracking brings that data back — here is how it works.",
+      "Ad blockers and privacy changes hide a large part of your conversions. Server-side tracking brings that data back - here is how it works.",
     date: "2026-09-16",
     readTime: "6 min read",
     author: "10X Creative Team",
@@ -317,7 +317,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "From data to decisions" },
       {
         type: "p",
-        text: "Clean tracking is only the start. We connect it to live ROI dashboards so you can see which campaigns, creatives and channels actually drive revenue — and move budget accordingly.",
+        text: "Clean tracking is only the start. We connect it to live ROI dashboards so you can see which campaigns, creatives and channels actually drive revenue - and move budget accordingly.",
       },
       { type: "h2", text: "Privacy first" },
       {

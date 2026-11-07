@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/portfolio/[slug]"
     title: `${company.name} Case Study | Portfolio`,
     description: company.excerpt,
     openGraph: {
-      title: `${company.name} — ${company.headline}`,
+      title: `${company.name} - ${company.headline}`,
       description: company.excerpt,
       images: company.cover ? [{ url: company.cover.src, alt: company.cover.alt }] : undefined,
     },
@@ -100,9 +100,8 @@ async function CaseStudyContent({ params }: { params: PageProps<"/portfolio/[slu
         </div>
 
         <dl
-          className={`grid gap-px bg-black/10 rounded-3xl overflow-hidden mt-5 ${
-            company.headlineStats.length === 2 ? "grid-cols-2" : "grid-cols-1 sm:grid-cols-3"
-          }`}
+          className={`grid gap-px bg-black/10 rounded-3xl overflow-hidden mt-5 ${company.headlineStats.length === 2 ? "grid-cols-2" : "grid-cols-1 sm:grid-cols-3"
+            }`}
         >
           {company.headlineStats.map((s) => (
             <div key={s.label} className="bg-white p-6 sm:p-8">

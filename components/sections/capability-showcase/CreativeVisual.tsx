@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
 import { Play } from "lucide-react";
 
-/* 02 · CREATIVE — phone with cycling reels + orbiting palette */
+/* 02 · CREATIVE - phone with cycling reels + orbiting palette */
 
-// Real client reels from /public/video/Creative-reels — each plays a short clip.
+// Real client reels from /public/video/Creative-reels - each plays a short clip.
 const REELS = [
   { src: "/video/Creative-reels/Travelco.mp4", client: "Travelco Holidays", start: 0 },
   { src: "/video/Creative-reels/Nile constecution.mp4", client: "Nile Construction", start: 0 },

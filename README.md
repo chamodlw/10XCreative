@@ -1,4 +1,4 @@
-# 10X Creative — Official Website
+# 10X Creative - Official Website
 
 > **"Unleash the Power of Digital."**  
 > A high-performance, results-driven marketing agency and web solutions platform based in Colombo, Sri Lanka.
@@ -127,10 +127,10 @@ To send emails through Gmail SMTP via Nodemailer:
 
 ## 🎨 Brand Assets & Logos
 
-- `public/10x-logo.png` — Horizontal black wordmark with red lightning bolt used for main navigation header.
-- `public/10x-logo2.png` — Stacked/compact black brand mark.
-- `public/10x-logo-white.png` & `public/10x-logo2-white.png` — Inverted white logos with red accents for dark ink sections (preloader, mobile menu, footer).
-- `public/hero-video.mp4` — High-definition background video for the hero section.
+- `public/10x-logo.png` - Horizontal black wordmark with red lightning bolt used for main navigation header.
+- `public/10x-logo2.png` - Stacked/compact black brand mark.
+- `public/10x-logo-white.png` & `public/10x-logo2-white.png` - Inverted white logos with red accents for dark ink sections (preloader, mobile menu, footer).
+- `public/hero-video.mp4` - High-definition background video for the hero section.
 
 ---
 

@@ -16,7 +16,7 @@ export default function Portfolio() {
             badge="OUR PORTFOLIO"
             title="FEATURED WORK THAT DRIVES REAL GROWTH."
             highlightWord="GROWTH"
-            subtitle="Real case studies across paid media, creative production and branding — with the numbers to back them up."
+            subtitle="Real case studies across paid media, creative production and branding - with the numbers to back them up."
           />
           <div className="shrink-0 hidden md:block">
             <Button href="/portfolio" variant="outline" size="md" icon>

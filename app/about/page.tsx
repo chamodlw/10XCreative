@@ -15,13 +15,13 @@ const VISION_MISSION = {
     icon: Eye,
     label: "OUR VISION",
     title: "TO BE THE MOST RESULTS-DRIVEN CREATIVE FORCE IN SOUTH ASIA.",
-    desc: "We envision a future where every ambitious brand — regardless of size — has access to world-class creative strategy, precision performance marketing, and technology-powered storytelling. We aim to be the agency that rewrites what's possible for Sri Lankan businesses on the global stage.",
+    desc: "We envision a future where every ambitious brand - regardless of size - has access to world-class creative strategy, precision performance marketing, and technology-powered storytelling. We aim to be the agency that rewrites what's possible for Sri Lankan businesses on the global stage.",
   },
   mission: {
     icon: Compass,
     label: "OUR MISSION",
     title: "TO TRANSFORM BOLD IDEAS INTO EXPONENTIAL DIGITAL GROWTH.",
-    desc: "Our mission is to fuse creative brilliance with data-driven precision — delivering campaigns that don't just look exceptional, but perform beyond expectations. We partner with brands that dare to think bigger, and we execute with the speed, transparency, and measurable impact they deserve.",
+    desc: "Our mission is to fuse creative brilliance with data-driven precision - delivering campaigns that don't just look exceptional, but perform beyond expectations. We partner with brands that dare to think bigger, and we execute with the speed, transparency, and measurable impact they deserve.",
   },
 };
 
@@ -192,7 +192,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Grid — moved above Core Values */}
+      {/* Team Grid - moved above Core Values */}
       <section className="py-24 max-w-7xl mx-auto px-6 sm:px-10">
         <SectionTitle
           badge="MEET THE STRATEGISTS"
@@ -221,7 +221,7 @@ export default function AboutPage() {
                 {/* Subtle gradient overlay at bottom of photo */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-               
+
 
                 {/* Bottom role pill floating on image */}
                 <div className="absolute bottom-3 left-3 right-3 z-10">
@@ -247,7 +247,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core Values — moved below Team */}
+      {/* Core Values - moved below Team */}
       <section className="py-24 bg-[#0F0F10] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-10">
           <SectionTitle

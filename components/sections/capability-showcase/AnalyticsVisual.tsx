@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-/* 04 · ANALYTICS — drawing line chart + overlapping donut card */
+/* 04 · ANALYTICS - drawing line chart + overlapping donut card */
 
 export default function AnalyticsVisual() {
   const path = "M0,150 C40,140 60,120 90,125 C120,130 140,90 175,85 C210,80 230,100 260,70 C290,40 320,45 360,20";

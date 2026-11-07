@@ -33,7 +33,7 @@ function Steam({ reduce, xs, top, prefix }: DrinkProps & { xs: number[]; top: nu
   );
 }
 
-/* Ceylon Espresso — demitasse with dark crema */
+/* Ceylon Espresso - demitasse with dark crema */
 export function EspressoShot({ reduce }: DrinkProps) {
   return (
     <svg viewBox="0 0 160 140" className="w-full h-full overflow-visible">
@@ -72,7 +72,7 @@ export function EspressoShot({ reduce }: DrinkProps) {
   );
 }
 
-/* Cinnamon Cappuccino — wide cup, foam dusted with cinnamon, a stick on the saucer */
+/* Cinnamon Cappuccino - wide cup, foam dusted with cinnamon, a stick on the saucer */
 export function CinnamonCappuccino({ reduce }: DrinkProps) {
   const dust = [
     [66, 66], [74, 70], [82, 64], [90, 69], [98, 66], [70, 74], [86, 75], [94, 73], [78, 68], [102, 71], [62, 70], [80, 72],
@@ -134,7 +134,7 @@ export function CinnamonCappuccino({ reduce }: DrinkProps) {
   );
 }
 
-/* Iced Kithul Latte — tall glass, layered coffee & milk, ice, straw */
+/* Iced Kithul Latte - tall glass, layered coffee & milk, ice, straw */
 export function IcedLatte({ reduce }: DrinkProps) {
   const ice = [
     { x: 64, y: 34, r: -12 },

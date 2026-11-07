@@ -12,6 +12,18 @@ export interface TestimonialItem {
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
+    id: "travelco-zanfer-sheriff",
+    quote:
+      "I'm really happy with the work of 10X Creative did for us! Their team made our ads way more effective, and we saw a big jump in new customers.\nThe graphics they designed looked awesome and made our brand stand out. Plus, the videos they created were super professional and got a lot of attention online.\nEveryone was friendly and easy to talk to - they always kept us in the loop. I'd definitely recommend them if you need help with digital advertising, graphics, or videos.",
+    author: "Zanfer Sheriff",
+    role: "Founder & CEO",
+    company: "Travelco Holidays",
+    avatar: "/images/testamonials/1. TRAVELCO_HOLIDAYS.png",
+    rating: 5,
+    tag: "Ads, Graphics & Video",
+    featured: true,
+  },
+  {
     id: "zaeem-sheriff",
     quote:
       "I've been working with Ajwad of 10X Creative for a number of years. He is a professional who truly understands digital advertising and communication, and his team has delivered consistently. We rely on their expertise to keep an eye on our ads, make judgment calls, and keep us informed. I highly recommend 10X Creative for digital advertising!",
@@ -21,18 +33,6 @@ export const TESTIMONIALS: TestimonialItem[] = [
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80",
     rating: 5,
     tag: "Paid Advertising & ROI",
-    featured: true,
-  },
-  {
-    id: "travelco-review",
-    quote:
-      "10X Creative completely overhauled our outbound travel campaigns. Their creative posters and hyper-targeted Meta ad sets generated immediate booking inquiries. They don't just execute campaigns; they genuinely care about our cost-per-lead and brand reputation.",
-    author: "Farhan Naheem",
-    role: "Marketing Director",
-    company: "Travelco Holidays",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=250&q=80",
-    rating: 5,
-    tag: "Creative Direction & Ads",
     featured: true,
   },
   {

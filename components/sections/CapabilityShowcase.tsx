@@ -57,7 +57,7 @@ export default function CapabilityShowcase() {
             Campaigns that turn ad spend into <span className="text-[#E3222A]">revenue</span>.
           </>
         }
-        description="High-ROAS paid advertising, social media growth, and influencer campaigns engineered around your unit economics — not vanity likes."
+        description="High-ROAS paid advertising, social media growth, and influencer campaigns engineered around your unit economics - not vanity likes."
         services={["Paid Advertising", "Social Media", "Influencer Marketing", "Lead Generation"]}
         metrics={[
           { value: "4.8X", label: "Avg. ROAS" },
@@ -99,7 +99,7 @@ export default function CapabilityShowcase() {
             Fast web experiences <span className="text-[#E3222A]">built to convert</span>.
           </>
         }
-        description="Bespoke Next.js websites, conversion-engineered landing funnels, and e-commerce stores with local payment gateways — all loading in under a second."
+        description="Bespoke Next.js websites, conversion-engineered landing funnels, and e-commerce stores with local payment gateways - all loading in under a second."
         services={["Web Design", "Landing Funnels", "E-Commerce", "Web Apps"]}
         metrics={[
           { value: "<1s", label: "Load Speed" },

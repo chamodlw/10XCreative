@@ -20,7 +20,7 @@ export default function BlogPage() {
           The 10X <span className="text-[#E3222A]">Blog</span>.
         </h1>
         <p className="text-lg sm:text-xl text-[#6B6B6B] leading-relaxed max-w-3xl">
-          Field notes from our team on marketing, creative, tech builds and analytics — what works, what doesn&apos;t,
+          Field notes from our team on marketing, creative, tech builds and analytics - what works, what doesn&apos;t,
           and how to grow faster.
         </p>
       </section>
