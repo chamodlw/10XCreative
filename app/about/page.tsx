@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import TeamSlider from "@/components/about/TeamSlider";
 import { Target, Lightbulb, Shield, Rocket, Eye, Compass } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -67,6 +68,14 @@ const TEAM_MEMBERS = [
   },
   {
     number: "03",
+    tag: "PERFORMANCE MARKETING",
+    name: "Sadath Hasan",
+    role: "Performance Marketer",
+    bio: "5+ years of hands-on paid media experience - planning, launching and scaling campaigns that turn ad spend into measurable growth.",
+    image: "/images/team/Sadath-Hassan.jpg",
+  },
+  {
+    number: "04",
     tag: "CREATIVE & UI/UX",
     name: "Maheshi De Silva",
     role: "UI/UX & Creative Designer",
@@ -74,7 +83,7 @@ const TEAM_MEMBERS = [
     image: "/images/team/Maheshi-De-Silva.jpg",
   },
   {
-    number: "04",
+    number: "05",
     tag: "PERFORMANCE",
     name: "Dineshika Rathnayake",
     role: "Digital Marketing Executive",
@@ -202,49 +211,7 @@ export default function AboutPage() {
           className="mb-16"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {TEAM_MEMBERS.map((member, idx) => (
-            <div
-              key={idx}
-              className="group relative bg-white rounded-3xl p-3 border border-black/8 shadow-xs hover:shadow-2xl hover:border-[#E3222A]/40 transition-all duration-500 flex flex-col justify-between"
-            >
-              {/* Photo Area */}
-              <div className="relative h-[320px] sm:h-[340px] w-full rounded-2xl overflow-hidden bg-[#ECECEA]">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-
-                {/* Subtle gradient overlay at bottom of photo */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-
-
-
-                {/* Bottom role pill floating on image */}
-                <div className="absolute bottom-3 left-3 right-3 z-10">
-                  <span className="inline-block px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md text-[#E3222A] text-[11px] font-bold uppercase tracking-wider shadow-md">
-                    {member.role}
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-4 pt-5 flex flex-col flex-grow justify-between">
-                <div>
-                  <h3 className="font-display text-2xl uppercase tracking-tight text-[#0F0F10] group-hover:text-[#E3222A] transition-colors leading-tight mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs text-[#6B6B6B] leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <TeamSlider members={TEAM_MEMBERS} />
       </section>
 
       {/* Core Values - moved below Team */}
