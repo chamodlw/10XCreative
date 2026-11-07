@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { BRAND } from "@/lib/constants";
 import { BLOG_POSTS } from "@/data/blogs";
+import { PORTFOLIO_COMPANIES } from "@/data/portfolio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BRAND.url;
@@ -86,5 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...staticRoutes, ...blogRoutes];
+  const portfolioRoutes: MetadataRoute.Sitemap = PORTFOLIO_COMPANIES.map((c) => ({
+    url: `${baseUrl}/portfolio/${c.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...portfolioRoutes, ...blogRoutes];
 }
