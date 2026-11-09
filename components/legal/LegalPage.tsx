@@ -108,7 +108,7 @@ export default function LegalPage({ title, highlight, intro, effectiveDate, sect
             <Link
               href={related.href}
               data-cursor="link"
-              className="relative mt-8 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-[#E3222A] transition-colors"
+              className="group relative mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0F0F10] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:bg-[#E3222A] hover:text-white transition-colors"
             >
               Read our {related.label} <ArrowUpRight className="w-4 h-4" />
             </Link>
