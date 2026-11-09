@@ -122,25 +122,25 @@ export default function Testimonials() {
                     </div>
                   </div>
 
-                  {/* Bottom: Client Profile with Avatar & Verification Badge */}
+                  {/* Bottom: Client Profile with Company Logo & Verification Badge */}
                   <div className="flex items-center gap-3.5 pt-5 border-t border-white/10">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#E3222A] shrink-0">
+                    <div className="relative w-20 h-14 rounded-xl overflow-hidden bg-white shrink-0">
                       <Image
-                        src={item.avatar}
-                        alt={item.author}
+                        src={item.logo}
+                        alt={`${item.company} logo`}
                         fill
-                        sizes="56px"
-                        className="object-cover"
+                        sizes="80px"
+                        className="object-contain p-1.5"
                       />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
-                        <h4 className="font-display text-base uppercase tracking-wider text-white truncate">
+                        <h4 className="font-display text-base uppercase tracking-wider text-white leading-tight">
                           {item.author}
                         </h4>
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#E3222A] shrink-0" />
                       </div>
-                      <p className="text-xs text-white/60 truncate">
+                      <p className="text-xs text-white/60 mt-0.5">
                         <span className="text-[#E3222A] font-semibold">{item.role}</span> • {item.company}
                       </p>
                     </div>

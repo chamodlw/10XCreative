@@ -4,11 +4,13 @@ export interface TestimonialItem {
   author: string;
   role: string;
   company: string;
-  avatar: string;
+  /** Company logo shown on the card */
+  logo: string;
   rating: number;
   tag: string;
-  featured?: boolean;
 }
+
+const LOGO = "/images/partners";
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
@@ -18,69 +20,63 @@ export const TESTIMONIALS: TestimonialItem[] = [
     author: "Zanfer Sheriff",
     role: "Founder & CEO",
     company: "Travelco Holidays",
-    avatar: "/images/testamonials/1. TRAVELCO_HOLIDAYS.png",
+    logo: `${LOGO}/1.png`,
     rating: 5,
     tag: "Ads, Graphics & Video",
-    featured: true,
   },
   {
-    id: "zaeem-sheriff",
+    id: "peacock-mathusoothanan-sundralingam",
     quote:
-      "I've been working with Ajwad of 10X Creative for a number of years. He is a professional who truly understands digital advertising and communication, and his team has delivered consistently. We rely on their expertise to keep an eye on our ads, make judgment calls, and keep us informed. I highly recommend 10X Creative for digital advertising!",
-    author: "Zaeem Sheriff",
-    role: "Operations Manager",
-    company: "Client Partner",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80",
+      "We have working with them for last 6month. since the beginning team was very active and enthusiastic towards our project. Every single day they came up with something new ideas to promote our brand.\nHighly recommended to everyone who wants to promote their product/brand through digital marketing.",
+    author: "Mathusoothanan Sundralingam",
+    role: "Owner",
+    company: "Peacock.lk",
+    logo: `${LOGO}/8.png`,
     rating: 5,
-    tag: "Paid Advertising & ROI",
-    featured: true,
+    tag: "Digital Marketing",
   },
   {
-    id: "royal-aquarium-review",
+    id: "alpha-s-hamza",
     quote:
-      "The visual rebranding and social media marketing engineered by 10X Creative took Royal Aquarium to a whole new level in Sri Lanka. Our store traffic and nationwide delivery inquiries jumped within the first month. Outstanding design sensibility!",
-    author: "Dinesh Wickramasinghe",
-    role: "Managing Director",
-    company: "Royal Aquarium & Pet Accessories",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=250&q=80",
+      "We've been working with 10X for a while now. They are committed and genuinely try their best to deliver what we need. One thing we really appreciate is the quality of the videos they created.\nThey turned out really well and performed strongly in our ad campaigns. They're open to feedback, easy to work with, and continue to improve with every project.",
+    author: "S Hamza",
+    role: "Owner",
+    company: "Alpha Immigration & Education Consultants",
+    logo: `${LOGO}/4.png`,
     rating: 5,
-    tag: "Brand Identity & Social",
-    featured: true,
+    tag: "Video & Ad Campaigns",
   },
   {
-    id: "nile-construction-review",
+    id: "pride-perfumes-shah-rukh-zubair",
     quote:
-      "When we needed an engineering web portal that matched our multi-million dollar infrastructure projects, 10X Creative delivered an ultra-fast, visually breathtaking Custom Coding website. Our global RFP bids are taken far more seriously now.",
-    author: "Eng. Rizwan Careem",
-    role: "Chief Executive Officer",
-    company: "Nile Construction Engineering",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=250&q=80",
+      "One of the best digital marketing firms I've worked with! The team is highly understanding, professional, and truly committed to delivering exceptional results within the given timeframe. Their strategies are effective and tailored to your goals - highly recommend them for anyone looking for real results in digital marketing!",
+    author: "Shah Rukh Zubair",
+    role: "Owner",
+    company: "Pride Perfumes",
+    logo: `${LOGO}/10.png`,
     rating: 5,
-    tag: "Tech Build & Web Platform",
-    featured: false,
+    tag: "Marketing Strategy",
   },
   {
-    id: "ceylon-retail-review",
+    id: "island-voyages-ahaz-shakoor",
     quote:
-      "The analytics dashboard and GA4 server-side pixel tracking setup by 10X Creative gave us complete visibility into our sales funnel. We cut wasted ad spend by 35% while increasing conversions by 140%. Unbeatable data clarity.",
-    author: "Dilshan Perera",
-    role: "Head of E-Commerce",
-    company: "Ceylon Retail Hub",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=250&q=80",
+      "I was introduced to 10X Creative through a friend, and at first, I was a bit hesitant as I had never worked with a marketing agency before. However, after meeting Mr. Ajwad, the entire process was seamless. I truly appreciate his ability to understand client needs and deliver accordingly. Thank you very much for the excellent support!",
+    author: "Ahaz Shakoor",
+    role: "Owner",
+    company: "Island Voyages",
+    logo: `${LOGO}/15.png`,
     rating: 5,
-    tag: "Conversion & Analytics",
-    featured: true,
+    tag: "Client Partnership",
   },
   {
-    id: "urban-edge-review",
+    id: "nile-construction-sri-prasath-thiyaga-moorthy",
     quote:
-      "From viral Reels concepts to complete commercial video production, 10X Creative brings unmatched energy. They script hooks that actually stop viewers from scrolling. Our brand recall in Colombo doubled in 60 days.",
-    author: "Sarah Fernando",
-    role: "Creative Brand Lead",
-    company: "Urban Edge Lifestyle",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80",
+      "I've been working with this digital agency for our construction company's media advertisements and lead generation. The quality of leads has been excellent, and their strategies have significantly boosted our business presence. They truly understand our industry and deliver tailored solutions that work. Highly recommend their services to anyone looking to grow their business online. Great team, professional service, and real results!",
+    author: "Sri Prasath Thiyaga Moorthy",
+    role: "Owner",
+    company: "Nile Construction",
+    logo: `${LOGO}/2.png`,
     rating: 5,
-    tag: "Viral Video & Creative",
-    featured: true,
+    tag: "Lead Generation",
   },
 ];
