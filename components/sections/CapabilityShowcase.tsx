@@ -17,17 +17,17 @@ export default function CapabilityShowcase() {
     <div id="services">
       {/* Intro / index strip */}
       <section className="bg-[#F7F7F5] pt-24 sm:pt-32 pb-4">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col items-start gap-8 sm:gap-10">
           <motion.h2
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-display text-4xl sm:text-6xl uppercase tracking-tight leading-[0.95] text-[#0F0F10] max-w-3xl"
+            className="font-display text-4xl sm:text-6xl uppercase tracking-tight leading-[0.95] text-[#0F0F10] max-w-4xl"
           >
             Four engines. <span className="text-[#E3222A]">One growth</span> machine.
           </motion.h2>
-          <nav className="flex flex-wrap gap-2">
+          <nav className="flex flex-wrap gap-2.5 sm:gap-3">
             {[
               ["01", "Marketing", "#cap-marketing"],
               ["02", "Creative", "#cap-creative"],
@@ -37,11 +37,11 @@ export default function CapabilityShowcase() {
               <a
                 key={h}
                 href={h}
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-black/10 bg-white text-xs font-bold uppercase tracking-wider text-[#0F0F10] hover:bg-[#0F0F10] hover:text-white transition-colors"
+                className="group inline-flex items-center gap-2.5 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full border border-black/15 bg-white shadow-sm text-[13px] sm:text-sm font-bold uppercase tracking-wider text-[#0F0F10] hover:bg-[#0F0F10] hover:text-white hover:border-[#0F0F10] transition-colors"
               >
                 <span className="text-[#E3222A]">{n}</span>
                 {l}
-                <ArrowUpRight className="w-3.5 h-3.5 rotate-90 opacity-50 group-hover:opacity-100" />
+                <ArrowUpRight className="w-4 h-4 rotate-90 opacity-60 group-hover:opacity-100" />
               </a>
             ))}
           </nav>

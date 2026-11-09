@@ -20,8 +20,8 @@ export default function SubServiceShowcase({ capability }: { capability: Capabil
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 sm:mb-24">
+      <section className="py-10 sm:py-18 max-w-7xl mx-auto px-6 sm:px-10">
+        <div className="flex flex-col items-start gap-8 mb-16 sm:mb-24">
           <SectionTitle
             badge={content.badge}
             title={content.title}
@@ -29,13 +29,13 @@ export default function SubServiceShowcase({ capability }: { capability: Capabil
             subtitle={content.subtitle}
             className="max-w-3xl"
           />
-          <div className="flex flex-wrap gap-2 lg:max-w-sm lg:justify-end">
+          <div className="flex flex-wrap gap-2.5 max-w-5xl">
             {content.items.map((item, i) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 data-cursor="link"
-                className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-black/5 text-[11px] font-bold uppercase tracking-wider text-[#0F0F10] hover:bg-[#E3222A] hover:text-white hover:border-[#E3222A] transition-colors"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white border border-black/10 shadow-sm text-xs sm:text-[13px] font-bold uppercase tracking-wider text-[#0F0F10] hover:bg-[#E3222A] hover:text-white hover:border-[#E3222A] transition-colors"
               >
                 <span className="text-[#E3222A] group-hover:text-white/80 font-mono">{String(i + 1).padStart(2, "0")}</span>
                 {item.title}
