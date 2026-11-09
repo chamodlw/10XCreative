@@ -34,7 +34,7 @@ export const CONTACT = {
     instagram: "https://www.instagram.com/10x.creative/",
     facebook: "https://www.facebook.com/be10xcreative/",
     linkedin: "https://www.linkedin.com/company/10xcreative",
-    tiktok: "https://tiktok.com/@10x.creative",
+    tiktok: "https://www.tiktok.com/@10xcreative",
   },
   hours: "Monday – Friday: 9:00 AM – 6:00 PM | Saturday: 9:00 AM – 1:00 PM",
   geo: {
