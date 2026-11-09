@@ -104,6 +104,7 @@ const T = "/images/portfolio/travelco";
 const S = "/images/portfolio/sculptureu";
 const N = "/images/portfolio/nile-construction";
 const I = "/images/portfolio/island-voyages";
+const SC = "/images/portfolio/Swiss-Ceylon-Gemology";
 
 export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
   // ───────────────────────────── TRAVELCO HOLIDAYS ─────────────────────────────
@@ -977,6 +978,56 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
         heading: "The Island Voyages mark.",
         layout: "wide",
         images: [{ src: `${I}/logo.jpg`, alt: "Island Voyages logo presented on a metal sign outside an office building" }],
+      },
+    ],
+  },
+
+  // ───────────────────────────── SWISS CEYLON GEMOLOGY ─────────────────────────────
+  {
+    slug: "swiss-ceylon-gemology",
+    name: "Swiss Ceylon Gemology",
+    industry: "Gem Testing & Certification",
+    location: "Sri Lanka",
+    categories: ["Performance Marketing" , "Creative & Content"],
+    services: ["Social Media Content", "Educational Post Design", "Creative Production"],
+    headline: "Turning gemological science into scroll-stopping social content.",
+    excerpt:
+      "Educational social media creatives for an independent gem testing and research laboratory - making gem science easy to understand.",
+    overview: [
+      "Swiss Ceylon Gemology is an independent gemological testing and research laboratory providing gem and jewellery certification.",
+      "10X Creative produces their social media content: educational posts that explain gem science in a clear, visual way and present the laboratory as a trusted, expert voice for gem buyers and traders.",
+    ],
+    brandColor: "#B3121F",
+    cover: { src: "/images/portfolio/Main-Photos/7-swiss_ceylon.png", alt: "Swiss Ceylon Gemology educational social media posts", position: "center" },
+    headlineStats: [
+      { value: "Social", label: "Content Design" },
+      { value: "Gem", label: "Education Series" },
+    ],
+    sections: [
+      {
+        type: "list",
+        eyebrow: "Our Approach",
+        heading: "Expert knowledge, made visual.",
+        intro: "Each post takes one gemology topic and turns it into a clean, premium creative:",
+        items: [
+          "One clear question or idea per post, answered at a glance",
+          "Rich, high-quality gemstone visuals that match a premium lab brand",
+          "Simple facts and comparisons - like how a 1.00 ct diamond and sapphire differ in size",
+          "Consistent branding with the lab's crest, contact details and website on every post",
+        ],
+      },
+      {
+        type: "gallery",
+        eyebrow: "Social Media Content",
+        heading: "Gem science on the feed.",
+        intro: "A selection of educational posts covering trace elements, gemstone colour and carat weight.",
+        layout: "posters",
+        images: [
+          { src: `${SC}/post 1.jpg`, alt: "The Power of Vanadium - educational post on the element behind emerald, tsavorite and tanzanite colours" },
+          { src: `${SC}/post 2.jpg`, alt: "Why do gemstones have different colours - educational post on trace elements" },
+          { src: `${SC}/post 3.jpg`, alt: "What does carat actually mean - educational post comparing a 1 ct diamond and sapphire" },
+        ],
+        links: [{ label: "View on Facebook", href: "https://www.facebook.com/swissceylongemology/" }],
       },
     ],
   },
