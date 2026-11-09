@@ -19,7 +19,7 @@ export default function WhyUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative mb-10 sm:mb-0"
           >
             <div
               onClick={() => setVideoModalOpen(true)}
@@ -44,15 +44,19 @@ export default function WhyUs() {
                   <Play className="w-8 h-8 fill-white translate-x-0.5" />
                 </div>
               </div>
+            </div>
 
-              {/* Bottom tag */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/90 backdrop-blur-md border border-white/20 flex items-center justify-between">
-                <div>
-                  <span className="text-[11px] font-bold text-[#E3222A] uppercase tracking-wider block">Watch Reel</span>
-                  <span className="text-sm font-bold text-[#0F0F10]">How We Drive 10X Digital Acceleration</span>
-                </div>
-                <span className="text-xs font-mono text-[#6B6B6B]">01:45</span>
+            {/* Bottom tag - hangs half outside the video on mobile, sits inside it from sm up */}
+            <div
+              onClick={() => setVideoModalOpen(true)}
+              data-cursor="play"
+              className="absolute z-10 left-4 right-4 bottom-0 translate-y-1/2 sm:left-6 sm:right-6 sm:bottom-6 sm:translate-y-0 p-4 rounded-xl bg-white sm:bg-white/90 backdrop-blur-md border border-black/5 sm:border-white/20 shadow-xl sm:shadow-none flex items-center justify-between gap-3 cursor-pointer"
+            >
+              <div>
+                <span className="text-[11px] font-bold text-[#E3222A] uppercase tracking-wider block">Watch Reel</span>
+                <span className="text-sm font-bold text-[#0F0F10]">How We Drive 10X Digital Acceleration</span>
               </div>
+              <span className="text-xs font-mono text-[#6B6B6B] shrink-0">01:45</span>
             </div>
           </motion.div>
 
