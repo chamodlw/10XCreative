@@ -20,7 +20,7 @@ export default function SubServiceShowcase({ capability }: { capability: Capabil
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="py-10 sm:py-18 max-w-7xl mx-auto px-6 sm:px-10">
+      <section className="py-8 sm:py-14 max-w-7xl mx-auto px-6 sm:px-10">
         <div className="flex flex-col items-start gap-8 mb-16 sm:mb-24">
           <SectionTitle
             badge={content.badge}
