@@ -94,7 +94,7 @@ export default function LegalPage({ title, highlight, intro, effectiveDate, sect
             <div className="relative space-y-2.5 text-sm text-white/80">
               <p className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#E3222A] shrink-0" />
-                <a href={`mailto:${CONTACT.emails.general}`} className="hover:text-white">{CONTACT.emails.general}</a>
+                <a href={`mailto:${CONTACT.emails.primary}`} className="hover:text-white">{CONTACT.emails.primary}</a>
               </p>
               <p className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#E3222A] shrink-0" />

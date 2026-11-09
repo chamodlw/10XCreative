@@ -416,9 +416,6 @@ export default function ContactPage() {
                   <p className="text-sm text-white/90">
                     <a href={`mailto:${CONTACT.emails.primary}`} className="hover:text-[#E3222A] transition-colors">{CONTACT.emails.primary}</a>
                   </p>
-                  <p className="text-sm text-white/70">
-                    <a href={`mailto:${CONTACT.emails.general}`} className="hover:text-[#E3222A] transition-colors">{CONTACT.emails.general}</a>
-                  </p>
                 </div>
               </div>
 

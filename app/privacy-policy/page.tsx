@@ -206,7 +206,7 @@ const sections: LegalSection[] = [
         </ul>
         <p>
           To exercise any of these rights, email us at{" "}
-          <a href={`mailto:${CONTACT.emails.general}`}>{CONTACT.emails.general}</a>. We may need to verify your identity
+          <a href={`mailto:${CONTACT.emails.primary}`}>{CONTACT.emails.primary}</a>. We may need to verify your identity
           before responding.
         </p>
       </>

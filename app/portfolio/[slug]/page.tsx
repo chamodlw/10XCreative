@@ -95,7 +95,7 @@ async function CaseStudyContent({ params }: { params: PageProps<"/portfolio/[slu
           ))}
         </div>
 
-        <div className="relative mt-10 aspect-[4/3] sm:aspect-[21/9] w-full rounded-3xl overflow-hidden bg-[#0F0F10]">
+        <div className="relative mt-10 aspect-[4/3] w-full max-w-5xl mx-auto rounded-3xl overflow-hidden bg-[#0F0F10]">
           <CaseCover company={company} priority sizes="(min-width: 1280px) 1216px, 100vw" />
         </div>
 
@@ -104,7 +104,7 @@ async function CaseStudyContent({ params }: { params: PageProps<"/portfolio/[slu
             }`}
         >
           {company.headlineStats.map((s) => (
-            <div key={s.label} className="bg-white p-6 sm:p-8">
+            <div key={s.label} className="bg-white p-6 sm:p-8 flex flex-col items-center justify-center text-center">
               <dd className="font-display text-4xl sm:text-6xl leading-none text-[#0F0F10]">{s.value}</dd>
               <dt className="text-xs font-bold uppercase tracking-wider text-[#E3222A] mt-3">{s.label}</dt>
               {s.note && <dd className="text-sm text-[#6B6B6B] mt-1">{s.note}</dd>}

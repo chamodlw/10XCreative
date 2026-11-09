@@ -28,7 +28,6 @@ export const CONTACT = {
   },
   emails: {
     primary: "ajwad@tenxcreative.com",
-    general: "info@tenxcreative.com",
   },
   socials: {
     instagram: "https://www.instagram.com/10x.creative/",
