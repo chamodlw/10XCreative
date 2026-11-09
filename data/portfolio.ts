@@ -124,7 +124,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     period: "Sep 2025 – Feb 2026 (6-month analysis)",
     partnership: "3+ years",
     brandColor: "#0B4F8A",
-    cover: { src: `${T}/cover-venice.jpg`, alt: "Travelco Holidays Europe tour creative", position: "center" },
+    cover: { src: "/images/portfolio/Main-Photos/1-Travelco.jpg", alt: "Travelco Holidays campaign creative", position: "center" },
     headlineStats: [
       { value: "127M+", label: "Impressions" },
       { value: "41K+", label: "Leads Generated" },
@@ -415,7 +415,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     ],
     period: "Nov 2025 – Feb 2026",
     brandColor: "#1F3A5F",
-    cover: { src: `${S}/creative-top.jpg`, alt: "SculptureU top-performing ad creative", position: "top" },
+    cover: { src: "/images/portfolio/Main-Photos/2-SculptureU.jpg", alt: "SculptureU campaign creative", position: "center" },
     headlineStats: [
       { value: "AUD 14", label: "Cost per Conversion" },
       { value: "29", label: "Conversions" },
@@ -623,6 +623,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     ],
     period: "Since November 2025",
     brandColor: "#0F6B5C",
+    cover: { src: "/images/portfolio/Main-Photos/3-peacock.jpg", alt: "Peacock.lk campaign creative", position: "center" },
     headlineStats: [
       { value: "+100%", label: "Website Traffic" },
       { value: "80K+", label: "Organic Views" },
@@ -727,6 +728,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     ],
     period: "June – October 2025",
     brandColor: "#2E6B3A",
+    cover: { src: "/images/portfolio/Main-Photos/4-QHC.jpg", alt: "Qudhrath Healthcare campaign creative", position: "center" },
     headlineStats: [
       { value: "750+", label: "Messaging Conversions", note: "From one campaign" },
       { value: "100s", label: "Quality Enquiries / Month" },
@@ -867,6 +869,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
     period: "6-month analysis",
     partnership: "2 years",
     brandColor: "#B8862B",
+    cover: { src: "/images/portfolio/Main-Photos/5-nile-construction.jpg", alt: "Nile Construction campaign creative", position: "center" },
     headlineStats: [
       { value: "1.36M+", label: "Impressions" },
       { value: "1,097", label: "Leads Generated" },
@@ -962,7 +965,7 @@ export const PORTFOLIO_COMPANIES: PortfolioCompany[] = [
       "10X Creative designed the Island Voyages logo: a bold \"V\" monogram with a sweeping travel arc and aircraft motif, set in a classic serif wordmark that reads as premium and trustworthy on everything from building signage to social profiles.",
     ],
     brandColor: "#123047",
-    cover: { src: `${I}/logo.jpg`, alt: "Island Voyages logo on an outdoor brand sign", position: "center" },
+    cover: { src: "/images/portfolio/Main-Photos/6-island-voyages.jpg", alt: "Island Voyages campaign creative", position: "center" },
     headlineStats: [
       { value: "Logo", label: "Design" },
       { value: "USA", label: "Market" },

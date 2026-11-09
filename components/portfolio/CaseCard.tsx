@@ -62,19 +62,18 @@ export default function CaseCard({ company, priority = false }: { company: Portf
           className="transition-transform duration-700 ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10]/85 via-[#0F0F10]/10 to-transparent" />
-        <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-1.5 z-10">
-          {company.categories.map((cat) => (
-            <span
-              key={cat}
-              className="px-2.5 py-1 rounded-full bg-white/95 text-[#0F0F10] text-[10px] font-bold uppercase tracking-wider shadow-sm"
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
-        <div className="absolute bottom-4 left-4 right-4 z-10 flex items-end justify-between gap-3">
+        <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-wrap items-end justify-between gap-x-3 gap-y-2">
           <span className="text-sm font-bold uppercase tracking-wider text-white drop-shadow-md">{company.name}</span>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-white/70 text-right">{company.location}</span>
+          <div className="ml-auto flex flex-col-reverse items-end gap-1.5">
+            {company.categories.map((cat) => (
+              <span
+                key={cat}
+                className="px-2.5 py-1 rounded-full bg-white/95 text-[#0F0F10] text-[10px] font-bold uppercase tracking-wider shadow-sm whitespace-nowrap"
+              >
+                {cat}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
