@@ -241,11 +241,11 @@ export const BLOG_POSTS: BlogPost[] = [
     capability: "tech-build",
     title: "Why a Slow Website Is Quietly Costing You Sales",
     excerpt:
-      "Every extra second of load time loses visitors. Here is why we build on Next.js and what a sub-second website means for your conversion rate.",
+      "Every extra second of load time loses visitors. Here is why we build on Custom Coding and what a sub-second website means for your conversion rate.",
     date: "2026-09-30",
     readTime: "5 min read",
     author: "10X Creative Team",
-    tags: ["Web Design", "Next.js", "Performance"],
+    tags: ["Web Design", "Custom Coding", "Performance"],
     image: "/images/blogs/5.avif",
     imageAlt: "Laptop on a desk showing website code",
     content: [
@@ -266,7 +266,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "What we do differently" },
       {
         type: "p",
-        text: "We build on Next.js with pages prerendered ahead of time, optimised images in modern formats, and only the JavaScript each page actually needs. The result is a site that feels instant on a mid-range phone.",
+        text: "We build on Custom Coding with pages prerendered ahead of time, optimised images in modern formats, and only the JavaScript each page actually needs. The result is a site that feels instant on a mid-range phone.",
       },
       {
         type: "quote",

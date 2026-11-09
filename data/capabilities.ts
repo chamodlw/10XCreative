@@ -26,7 +26,7 @@ export const CAPABILITIES: CapabilityLink[] = [
     number: "03",
     label: "Tech Build",
     href: "/tech-build",
-    tagline: "Sub-second Next.js websites, funnels & e-commerce.",
+    tagline: "Sub-second Custom Coding websites, funnels & e-commerce.",
   },
   {
     key: "analytics",

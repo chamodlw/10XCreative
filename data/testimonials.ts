@@ -50,7 +50,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: "nile-construction-review",
     quote:
-      "When we needed an engineering web portal that matched our multi-million dollar infrastructure projects, 10X Creative delivered an ultra-fast, visually breathtaking Next.js website. Our global RFP bids are taken far more seriously now.",
+      "When we needed an engineering web portal that matched our multi-million dollar infrastructure projects, 10X Creative delivered an ultra-fast, visually breathtaking Custom Coding website. Our global RFP bids are taken far more seriously now.",
     author: "Eng. Rizwan Careem",
     role: "Chief Executive Officer",
     company: "Nile Construction Engineering",

@@ -99,7 +99,7 @@ export default function CapabilityShowcase() {
             Fast web experiences <span className="text-[#E3222A]">built to convert</span>.
           </>
         }
-        description="Bespoke Next.js websites, conversion-engineered landing funnels, and e-commerce stores with local payment gateways - all loading in under a second."
+        description="Bespoke Custom Coded websites, conversion-engineered landing funnels, and e-commerce stores with local payment gateways - all loading in under a second."
         services={["Web Design", "Landing Funnels", "E-Commerce", "Web Apps"]}
         metrics={[
           { value: "<1s", label: "Load Speed" },

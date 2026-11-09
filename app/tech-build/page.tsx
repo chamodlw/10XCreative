@@ -6,9 +6,9 @@ import { CONTACT } from "@/lib/constants";
 import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
-  title: "Next.js Web Development & Tech Build | 10X Creative Sri Lanka",
+  title: "Web Development & Tech Build | 10X Creative Sri Lanka",
   description:
-    "Award-winning Next.js web development in Sri Lanka. Sub-second load speeds, bespoke e-commerce, conversion-focused landing pages, and interactive web applications.",
+    "Award-winning web development in Sri Lanka. Sub-second load speeds, bespoke e-commerce, conversion-focused landing pages, and interactive web applications.",
 };
 
 export default function TechBuildPage() {
@@ -21,7 +21,7 @@ export default function TechBuildPage() {
             FAST WEB EXPERIENCES <span className="text-[#E3222A]">BUILT TO CONVERT</span>.
           </h1>
           <p className="text-lg sm:text-xl text-[#6B6B6B] leading-relaxed max-w-3xl mb-8">
-            No bloated WordPress builders or sluggish templates. We architect bespoke digital flagships, high-conversion landing funnels, and modern e-commerce stores engineered with Next.js that load in under 1 second.
+            No bloated WordPress builders or sluggish templates. We architect bespoke digital flagships, high-conversion landing funnels, and modern e-commerce stores engineered with Custom Coded that load in under 1 second.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

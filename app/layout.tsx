@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | 10X Creative – Digital Marketing Agency Sri Lanka",
   },
   description:
-    "10X Creative is a results-driven marketing agency and web solutions provider based in Colombo, Sri Lanka. Unleash the power of digital with paid ads, social media, viral content, and custom Next.js websites.",
+    "10X Creative is a results-driven marketing agency and web solutions provider based in Colombo, Sri Lanka. Unleash the power of digital with paid ads, social media, viral content, and custom websites.",
   keywords: [
     "digital marketing agency Sri Lanka",
     "social media marketing Colombo",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "influencer marketing Sri Lanka",
     "content creation Colombo",
     "10X Creative",
-    "Next.js web development Sri Lanka",
+    "Web development Sri Lanka",
     "PPC agency Colombo",
   ],
   authors: [{ name: "10X Creative Team", url: BRAND.url }],

@@ -131,7 +131,7 @@ export default function AboutPage() {
                 10X Creative was founded on a simple conviction: traditional marketing agencies deliver reports filled with vanity impressions, while clients starve for real conversions and qualified leads.
               </p>
               <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
-                We rebuilt the agency model from scratch. By uniting performance paid advertising, cinematic video production, sharp brand design, and modern Next.js web architectures under one roof, we execute campaigns that create tangible, compounded revenue.
+                We rebuilt the agency model from scratch. By uniting performance paid advertising, cinematic video production, sharp brand design, and modern web architectures under one roof, we execute campaigns that create tangible, compounded revenue.
               </p>
               <div className="pt-2">
                 <Button href="/contact" variant="primary" size="md" icon magnetic>
