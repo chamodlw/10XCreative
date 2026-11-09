@@ -67,9 +67,9 @@ export const metadata: Metadata = {
     siteName: BRAND.name,
     images: [
       {
-        url: "/favicon.png",
+        url: "/logo-link.png",
         width: 400,
-        height: 300,
+        height: 400,
         alt: "10X Creative - Unleash the Power of Digital",
       },
     ],
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "10X Creative | Results-Driven Digital Marketing Agency",
     description: "Unleash the Power of Digital. Marketing, PPC, Content & Web Solutions.",
-    images: ["/favicon.png"],
+    images: ["/logo-link.png"],
     creator: "@10xcreative",
   },
   icons: {
